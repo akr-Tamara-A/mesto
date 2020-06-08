@@ -2,5 +2,8 @@
 @import url(./__edit-profile/button__edit-profile.css);
 
 .button {
-  
+  background-color: transparent;
+  border-color: #ffffff;
+  border-style: solid;
+  box-sizing: border-box;
 }

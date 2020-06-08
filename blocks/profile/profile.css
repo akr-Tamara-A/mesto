@@ -5,5 +5,8 @@
 @import url(./__add-post/profile__add-post.css);
 
 .profile {
-  
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

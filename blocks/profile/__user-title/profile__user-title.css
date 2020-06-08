@@ -1,3 +1,8 @@
 .profile__user-title {
-  
+  grid-area: user-title;
+  font-size: 18px;
+  line-height: 1.22;
+  font-weight: 400;
+  font-style: normal;
+  margin: 16px 17px 0 30px;
 }

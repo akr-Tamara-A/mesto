@@ -1,3 +1,7 @@
 .profile__user {
-  
+  display: grid;
+  grid-template-columns: 240px minmax(max-content, 1fr) 24px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: "userpic user-name edit"
+                       "userpic user-title .";
 }

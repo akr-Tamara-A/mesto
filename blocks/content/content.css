@@ -1,6 +1,5 @@
 @import url(./__section/content__section.css);
 
 .content {
-  min-height: 74px;
   max-width: 882px;
 }
