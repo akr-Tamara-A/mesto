@@ -1,3 +1,5 @@
 .profile__userpic {
   grid-area: userpic;
+  width: 100%;
+  border-radius: 50%;
 }
