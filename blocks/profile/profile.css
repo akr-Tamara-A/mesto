@@ -1,3 +1,9 @@
+@import url(./__user/profile__user.css);
+@import url(./__userpic/profile__userpic.css);
+@import url(./__user-name/profile__user-name.css);
+@import url(./__user-title/profile__user-title.css);
+@import url(./__add-post/profile__add-post.css);
+
 .profile {
   
 }
