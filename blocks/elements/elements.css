@@ -2,6 +2,5 @@
 @import url(./__item/elements__item.css);
 
 .elements {
-
-  margin: 0 auto;
+  width: 100%;
 }

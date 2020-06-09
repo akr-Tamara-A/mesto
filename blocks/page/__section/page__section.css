@@ -1,0 +1,7 @@
+.page__section {
+  max-width: 920px;
+  padding: 0 19px;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
