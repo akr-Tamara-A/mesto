@@ -1,3 +1,7 @@
 .elements__item {
   margin: 0;
 }
+
+.elements__item:hover {
+  
+}

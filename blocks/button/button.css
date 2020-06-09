@@ -1,9 +1,16 @@
 @import url(./__add-post/button__add-post.css);
 @import url(./__edit-profile/button__edit-profile.css);
+@import url(./__like/button__like.css);
 
 .button {
   background-color: transparent;
-  border-color: #ffffff;
-  border-style: solid;
   box-sizing: border-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: opacity .3s ease;
+}
+
+.button:hover {
+  opacity: .6;
 }

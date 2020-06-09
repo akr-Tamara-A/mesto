@@ -1,3 +1,4 @@
+@import url(./__head/element__head.css);
 @import url(./__image/element__image.css);
 @import url(./__figcaption/element__figcaption.css);
 @import url(./__like/element__like.css);
@@ -9,3 +10,4 @@
   overflow: hidden;
   border: none;
 }
+

@@ -4,5 +4,6 @@
   height: 24px;
   align-self: end;
   margin: 0;
-  border-width: 1px;
+  border: 1px solid #ffffff;
+  background-image: url(../../../images/edit-button.svg);
 }
