@@ -17,10 +17,12 @@
 
     <main class="content page__content">
       <article class="profile content__section">
-        <section class="profile__user">
+        <section class="profile__container">
           <img src="./images/image.jpg" alt="" class="profile__userpic">
-          <h1 class="profile__user-name">Жак-Ив Кусто</h1>
-          <p class="profile__user-title">Исследователь океана</p>
+          <div class="profile__user">
+            <h1 class="profile__user-name">Жак-Ив Кусто</h1>
+            <p class="profile__user-title">Исследователь океана</p>
+          </div>
           <button class="button button__edit-profile"></button>
         </section>
         <section class="profile__add-post">
@@ -29,53 +31,55 @@
       </article>
 
       <article class="elements content__section">
-        <figure class="elements__item element">
-          <img src="./images/01 arctic-ocean 282.jpg" alt="" class="element__image">
-          <figcaption class="element__figcaption">
-            <h3 class="element__title">Арктический океан</h3>
-            <input type="checkbox" class="element__like">
-          </figcaption>
-        </figure>
-
-        <figure class="elements__item element">
-          <img src="./images/02 caspian-sea 282.jpg" alt="" class="element__image">
-          <figcaption class="element__figcaption">
-            <h3 class="element__title">Каспийское море</h3>
-            <input type="checkbox" class="element__like">
-          </figcaption>
-        </figure>
-
-        <figure class="elements__item element">
-          <img src="./images/03 irtysh  282.jpg" alt="" class="element__image">
-          <figcaption class="element__figcaption">
-            <h3 class="element__title">Иртыш</h3>
-            <input type="checkbox" class="element__like">
-          </figcaption>
-        </figure>
-
-        <figure class="elements__item element">
-          <img src="./images/04 enecei 282.jpg" alt="" class="element__image">
-          <figcaption class="element__figcaption">
-            <h3 class="element__title">Енисей</h3>
-            <input type="checkbox" class="element__like">
-          </figcaption>
-        </figure>
-
-        <figure class="elements__item element">
-          <img src="./images/05 volga-river 282.jpg" alt="" class="element__image">
-          <figcaption class="element__figcaption">
-            <h3 class="element__title">Волга</h3>
-            <input type="checkbox" class="element__like">
-          </figcaption>
-        </figure>
-
-        <figure class="elements__item element">
-          <img src="./images/06 baical 282.jpg" alt="" class="element__image">
-          <figcaption class="element__figcaption">
-            <h3 class="element__title">Озеро Байкал</h3>
-            <input type="checkbox" class="element__like">
-          </figcaption>
-        </figure>
+        <div class="elements__container">
+          <figure class="elements__item element">
+            <img src="./images/01 arctic-ocean 282.jpg" alt="" class="element__image">
+            <figcaption class="element__figcaption">
+              <h3 title="Северный Ледовитый океан" class="element__title">Северный Ледовитый океан</h3>
+              <input type="checkbox" class="element__like">
+            </figcaption>
+          </figure>
+  
+          <figure class="elements__item element">
+            <img src="./images/02 caspian-sea 282.jpg" alt="" class="element__image">
+            <figcaption class="element__figcaption">
+              <h3 class="element__title">Каспийское море</h3>
+              <input type="checkbox" class="element__like">
+            </figcaption>
+          </figure>
+  
+          <figure class="elements__item element">
+            <img src="./images/03 volga-river 282.jpg" alt="" class="element__image">
+            <figcaption class="element__figcaption">
+              <h3 class="element__title">Иртыш</h3>
+              <input type="checkbox" class="element__like">
+            </figcaption>
+          </figure>
+  
+          <figure class="elements__item element">
+            <img src="./images/04 irtysh 282.jpg" alt="" class="element__image">
+            <figcaption class="element__figcaption">
+              <h3 class="element__title">Енисей</h3>
+              <input type="checkbox" class="element__like">
+            </figcaption>
+          </figure>
+  
+          <figure class="elements__item element">
+            <img src="./images/05 irtysh  282.jpg" alt="" class="element__image">
+            <figcaption class="element__figcaption">
+              <h3 class="element__title">Волга</h3>
+              <input type="checkbox" class="element__like">
+            </figcaption>
+          </figure>
+  
+          <figure class="elements__item element">
+            <img src="./images/06 enecei 282.jpg" alt="" class="element__image">
+            <figcaption class="element__figcaption">
+              <h3 class="element__title">Озеро Байкал</h3>
+              <input type="checkbox" class="element__like">
+            </figcaption>
+          </figure>
+        </div>
       </article>
 
     </main>
