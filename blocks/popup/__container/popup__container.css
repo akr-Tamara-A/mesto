@@ -1,4 +1,4 @@
-.popup__form {
+.popup__container {
   position: relative;
   max-width: 430px;
   width: 80%;
@@ -12,14 +12,14 @@
 }
 
 @media screen and (max-width: 540px) {
-  .popup__form {
+  .popup__container {
   
     padding: 24px;
   }
 }
 
 @media screen and (max-width: 380px) {
-  .popup__form {
+  .popup__container {
  
     padding: 18px;
   }
