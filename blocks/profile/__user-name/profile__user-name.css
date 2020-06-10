@@ -6,6 +6,9 @@
   font-weight: 500;
   font-style: normal;
   margin: 7px 17px 0 30px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 780px) {
