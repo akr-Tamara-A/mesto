@@ -5,3 +5,17 @@
   border-radius: 2px;
   background-image: url(../../../images/plus.svg);
 }
+
+@media screen and (max-width: 780px) {
+  .button__add-post {
+    width: 282px;
+    margin-top: 36px;
+    transform: translateX(53.5%);
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .button__add-post {
+    transform: translateX(0);
+  }
+}

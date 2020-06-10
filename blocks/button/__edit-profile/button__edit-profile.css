@@ -7,3 +7,17 @@
   border: 1px solid #ffffff;
   background-image: url(../../../images/edit-button.svg);
 }
+
+@media screen and (max-width: 780px) {
+  .button__edit-profile {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .button__edit-profile {
+    width: 18px;
+    height: 18px;
+  }
+}

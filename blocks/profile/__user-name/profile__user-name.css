@@ -2,8 +2,22 @@
   grid-area: user-name;
   align-self: end;
   font-size: 42px;
-  line-height: 1.33;
+  line-height: 1;
   font-weight: 500;
   font-style: normal;
   margin: 7px 17px 0 30px;
+}
+
+@media screen and (max-width: 780px) {
+  .profile__user-name {
+    font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .profile__user-name {
+    font-size: 27px;
+    margin: 0 0 14px 0;
+    text-align: center;
+  }
 }

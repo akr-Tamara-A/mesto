@@ -1,7 +1,17 @@
 .profile__container {
   display: grid;
-  grid-template-columns: 240px minmax(max-content, 1fr) 24px;
+  grid-template-columns: 120px minmax(max-content, 1fr) 24px;
   grid-template-rows: repeat(2, 1fr);
   grid-template-areas: "userpic user edit"
                        "userpic user .";
+}
+
+@media screen and (max-width: 620px) {
+  .profile__container {
+    grid-template-rows: max-content 1fr 1fr;
+    grid-template-areas: "userpic userpic userpic"
+                         "user user edit"
+                         "user user .";
+    row-gap: 14px;
+  }
 }

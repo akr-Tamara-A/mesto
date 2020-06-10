@@ -1,4 +1,12 @@
 .profile__user {
   grid-area: user;
   align-self: center;
+  margin: 0 17px 0 30px;
+}
+
+@media screen and (max-width: 620px) {
+  .profile__user {
+    align-self: start;
+    margin: 0 8px 0 0;
+  }
 }
