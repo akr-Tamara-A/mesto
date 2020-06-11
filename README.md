@@ -1,6 +1,6 @@
 ***
 
-# Проект 3: Mesto
+# Проект 3: Mesto Russia
 ##### Проект сервиса для [Яндекс Практикума](https://praktikum.yandex.ru/) по [макету в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4).
 
 ***
