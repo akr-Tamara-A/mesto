@@ -19,3 +19,9 @@
     flex-direction: column;
   }
 }
+
+@media screen and (max-width: 620px) {
+  .profile {
+    margin-bottom: 36px;
+  }
+}

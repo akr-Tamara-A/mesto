@@ -2,7 +2,13 @@
 @import url(./__logo-link/header__logo-link.css);
 
 .header {
-  min-height: 74px;
   color: #ffffff;
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  min-height: 74px;
+}
+
+@media screen and (max-width: 620px) {
+  .header {
+    min-height: 56px;
+  }
 }
