@@ -20,6 +20,7 @@ formPopup.addEventListener('submit', formSubmitHandler);
 // Открытие редактирования профиля пользователя
 function openPopup() {
   popup.classList.add('popup_opened');
+  formUserName.focus();
   formUserName.value = userName.textContent;
   formUserJob.value = userJob.textContent;
 }
@@ -29,6 +30,7 @@ popupOpenButton.addEventListener('click', openPopup);
 // Закрытие редактирования профиля пользователя
 function closePopup() {
   popup.classList.remove('popup_opened');
+  popupOpenButton.focus();
 }
 
 popupCloseButton.addEventListener('click', closePopup);

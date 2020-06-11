@@ -14,3 +14,7 @@
 .button:hover {
   opacity: .6;
 }
+
+.button:focus {
+  outline: 2px solid rgb(64, 154, 244);
+}
