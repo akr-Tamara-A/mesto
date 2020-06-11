@@ -1,3 +1,25 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 const popup = document.querySelector('.popup');
 const popupOpen = document.querySelector('.button__edit-profile');
 const popupClose = document.querySelector('.popup__close');
@@ -33,7 +55,7 @@ formSubmit.addEventListener('submit', formSubmitHandler);
 formSubmit.addEventListener('click', formSubmitHandler);
 formSubmit.addEventListener('click', togglePopup);
 
-
+*/
 
 
 

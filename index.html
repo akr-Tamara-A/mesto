@@ -25,32 +25,23 @@
     </header>
 
     <main class="content page__content">
-      <article class="profile page__section">
-        <section class="profile__container">
+      <div class="profile page__section">
+        <div class="profile__container">
           <img src="./images/userpic.jpg" alt="Аватар автора" class="profile__userpic">
           <div class="profile__user">
-            <h1 class="profile__user-name">Жак-Ив Кусто</h1>
+            <h2 class="profile__user-name">Жак-Ив Кусто</h2>
             <p class="profile__user-job">Исследователь океана</p>
           </div>
           <button type="button" class="button button_edit-profile"></button>
-          <div class="popup">
-            <form class="popup__container">
-              <h2 class="popup__title">Редактировать профиль</h2>
-              <input type="text" placeholder="Имя пользователя" class="popup__input popup__username">
-              <input type="text" placeholder="О себе" class="popup__input popup__about">
-              <input type="submit" value="Сохранить" class="popup__submit">
-              <input type="button" value="Закрыть окно" class="popup__close">
-            </form>
           </div>
-        </section>
-        <section class="profile__add-post">
+        <div class="profile__add-post">
           <button type="button" class="button button_add-post"></button>
-        </section>
-      </article>
+        </div>
+      </div>
 
-      <article class="elements page__section">
+      <section class="elements page__section">
         <ul class="elements__container">
-          <li class="element__item">
+          <li class="elements__item">
             <figure class="element">
               <div class="element__head">
                 <img src="./images/01__arctic-ocean__small.jpg" alt="Парусник возле заснеженого берега в Северном Ледовитом океане" 
@@ -64,7 +55,7 @@
           </li>
 
   
-          <li class="element__item">
+          <li class="elements__item">
             <figure class="element">
               <div class="element__head">
                 <img src="./images/02__caspian-sea__small.jpg" alt="Восход на Каспийском море близ пляжа Чалус" class="element__image">
@@ -76,7 +67,7 @@
             </figure>
           </li>
   
-          <li class="element__item">
+          <li class="elements__item">
             <figure class="element">
               <div class="element__head">
                 <img src="./images/03__volga__small.jpg" alt="Баржа на реке Волге" class="element__image">
@@ -88,7 +79,7 @@
             </figure>
           </li>
   
-          <li class="element__item">
+          <li class="elements__item">
             <figure class="element">
               <div class="element__head">
                 <img src="./images/04__irtysh__small.jpg" alt="Закат над рекой Иртыш" class="element__image">
@@ -100,7 +91,7 @@
             </figure>
           </li>
   
-          <li class="element__item">
+          <li class="elements__item">
             <figure class="element">
               <div class="element__head">
                 <img src="./images/05__irtysh__small.jpg" alt="Яхты на реке Иртыш" class="element__image">
@@ -112,7 +103,7 @@
             </figure>
           </li>
   
-          <li class="element__item">
+          <li class="elements__item">
             <figure class="element">
               <div class="element__head">
                 <img src="./images/06__enecei__small.jpg" alt="Река Енисей возле Саяногорска" class="element__image">
@@ -125,13 +116,23 @@
           </li>
           
         </ul>
-      </article>
+      </section>
 
     </main>
 
     <footer class="footer page__footer page__section">
-      <p class="footer__copyright">© 2020 Mesto Russia</p>
+      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
+
+    <div class="popup">
+      <form class="popup__container">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input type="text" placeholder="Имя пользователя" class="popup__input popup__input_type_username">
+        <input type="text" placeholder="О себе" class="popup__input popup__input_type_about">
+        <input type="submit" value="Сохранить" class="popup__submit">
+        <input type="button" value="Закрыть окно" class="popup__close">
+      </form>
+    </div>
   </div>
   <script src="./scripts/index.js"></script>
 </body>
