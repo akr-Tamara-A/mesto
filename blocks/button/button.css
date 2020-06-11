@@ -1,6 +1,6 @@
-@import url(./__add-post/button__add-post.css);
-@import url(./__edit-profile/button__edit-profile.css);
-@import url(./__like/button__like.css);
+@import url(./_add-post/button__add-post.css);
+@import url(./_edit-profile/button_edit-profile.css);
+@import url(./_like/button_like.css);
 
 .button {
   background-color: transparent;
