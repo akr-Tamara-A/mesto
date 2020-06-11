@@ -1,4 +1,10 @@
 .element__image {
   width: 100%;
   max-width: 100%;
+  object-position: center;
+  transition: transform .3s ease;
+}
+
+.elements__item:hover .element__image {
+  transform: scale(1.1, 1.1);
 }
