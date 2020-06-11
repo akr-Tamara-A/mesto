@@ -6,7 +6,7 @@
   background-image: url(../../../images/plus.svg);
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 860px) {
   .button_type_add-post {
     width: 282px;
     margin-top: 36px;

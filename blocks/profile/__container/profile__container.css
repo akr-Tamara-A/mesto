@@ -6,7 +6,7 @@
                        "userpic user .";
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 680px) {
   .profile__container {
     grid-template-rows: max-content 1fr 1fr;
     grid-template-areas: "userpic userpic userpic"

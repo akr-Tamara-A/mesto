@@ -14,13 +14,13 @@
   margin-bottom: 50px;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 860px) {
   .profile {
     flex-direction: column;
   }
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 680px) {
   .profile {
     margin-bottom: 36px;
   }
