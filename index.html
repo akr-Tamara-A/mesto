@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./pages/index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="Т.Андреева">
-    <title>Mesto</title>
- </head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./pages/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Т.Андреева">
+  <title>Сервис Mesto Russia</title>
+</head>
 <body class="page">
   <div class="page__container">
     <header class="header page__header page__section">
-      <img src="./images/logo.svg" alt="" class="logo header__logo">
+      <a href="#" class="header__logo-link">
+        <img src="./images/logo.svg" alt="" class="logo header__logo">
+      </a>
     </header>
 
     <main class="content page__content">
       <article class="profile page__section">
         <section class="profile__container">
-          <img src="./images/image.jpg" alt="" class="profile__userpic">
+          <img src="./images/userpic.jpg" alt="Аватар автора" class="profile__userpic">
           <div class="profile__user">
             <h1 class="profile__user-name">Жак-Ив Кусто</h1>
             <p class="profile__user-job">Исследователь океана</p>
@@ -40,68 +42,82 @@
       </article>
 
       <article class="elements page__section">
-        <div class="elements__container">
-          <figure class="elements__item element">
-            <div class="element__head">
-              <img src="./images/01__arctic-ocean__small.jpg" alt="Парусник возле заснеженого берега в Северном Ледовитом океане" 
-              class="element__image">
-          </div>
-           <figcaption class="element__figcaption">
-              <h3 title="Северный Ледовитый океан" class="element__title">Северный Ледовитый океан</h3>
-              <button class="button button__like element__like"></button>
-            </figcaption>
-          </figure>
-  
-          <figure class="elements__item element">
-            <div class="element__head">
-              <img src="./images/02__caspian-sea__small.jpg" alt="Восход на Каспийском море близ пляжа Чалус" class="element__image">
+        <ul class="elements__container">
+          <li class="element__item">
+            <figure class="element">
+              <div class="element__head">
+                <img src="./images/01__arctic-ocean__small.jpg" alt="Парусник возле заснеженого берега в Северном Ледовитом океане" 
+                class="element__image">
             </div>
-            <figcaption class="element__figcaption">
-              <h3 class="element__title">Каспийское море</h3>
-              <button class="button button__like element__like"></button>
-            </figcaption>
-          </figure>
+             <figcaption class="element__figcaption">
+                <h3 title="Северный Ледовитый океан" class="element__title">Северный Ледовитый океан</h3>
+                <button class="button button__like element__like"></button>
+              </figcaption>
+            </figure>
+          </li>
+
   
-          <figure class="elements__item element">
-            <div class="element__head">
-              <img src="./images/03__volga__small.jpg" alt="Баржа на реке Волге" class="element__image">
-            </div>
-            <figcaption class="element__figcaption">
-              <h3 class="element__title">Волга</h3>
-              <button class="button button__like element__like"></button>
-            </figcaption>
-          </figure>
+          <li class="element__item">
+            <figure class="element">
+              <div class="element__head">
+                <img src="./images/02__caspian-sea__small.jpg" alt="Восход на Каспийском море близ пляжа Чалус" class="element__image">
+              </div>
+              <figcaption class="element__figcaption">
+                <h3 title="Каспийское море" class="element__title">Каспийское море</h3>
+                <button class="button button__like element__like"></button>
+              </figcaption>
+            </figure>
+          </li>
   
-          <figure class="elements__item element">
-            <div class="element__head">
-              <img src="./images/04__irtysh__small.jpg" alt="Закат над рекой Иртыш" class="element__image">
-            </div>
-            <figcaption class="element__figcaption">
-              <h3 class="element__title">Иртыш</h3>
-              <button class="button button__like element__like"></button>
-            </figcaption>
-          </figure>
+          <li class="element__item">
+            <figure class="element">
+              <div class="element__head">
+                <img src="./images/03__volga__small.jpg" alt="Баржа на реке Волге" class="element__image">
+              </div>
+              <figcaption class="element__figcaption">
+                <h3 class="element__title">Волга</h3>
+                <button class="button button__like element__like"></button>
+              </figcaption>
+            </figure>
+          </li>
   
-          <figure class="elements__item element">
-            <div class="element__head">
-              <img src="./images/05__irtysh__small.jpg" alt="Яхты на реке Иртыш" class="element__image">
-            </div>
-            <figcaption class="element__figcaption">
-              <h3 class="element__title">Иртыш</h3>
-              <button class="button button__like element__like"></button>
-            </figcaption>
-          </figure>
+          <li class="element__item">
+            <figure class="element">
+              <div class="element__head">
+                <img src="./images/04__irtysh__small.jpg" alt="Закат над рекой Иртыш" class="element__image">
+              </div>
+              <figcaption class="element__figcaption">
+                <h3 class="element__title">Иртыш</h3>
+                <button class="button button__like element__like"></button>
+              </figcaption>
+            </figure>
+          </li>
   
-          <figure class="elements__item element">
-            <div class="element__head">
-              <img src="./images/06__enecei__small.jpg" alt="Река Енисей возле Саяногорска" class="element__image">
-            </div>
-            <figcaption class="element__figcaption">
-              <h3 class="element__title">Енисей</h3>
-              <button class="button button__like element__like"></button>
-            </figcaption>
-          </figure>
-        </div>
+          <li class="element__item">
+            <figure class="element">
+              <div class="element__head">
+                <img src="./images/05__irtysh__small.jpg" alt="Яхты на реке Иртыш" class="element__image">
+              </div>
+              <figcaption class="element__figcaption">
+                <h3 class="element__title">Иртыш</h3>
+                <button class="button button__like element__like"></button>
+              </figcaption>
+            </figure>
+          </li>
+  
+          <li class="element__item">
+            <figure class="element">
+              <div class="element__head">
+                <img src="./images/06__enecei__small.jpg" alt="Река Енисей возле Саяногорска" class="element__image">
+              </div>
+              <figcaption class="element__figcaption">
+                <h3 class="element__title">Енисей</h3>
+                <button class="button button__like element__like"></button>
+              </figcaption>
+            </figure>
+          </li>
+          
+        </ul>
       </article>
 
     </main>

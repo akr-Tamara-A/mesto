@@ -1,8 +1,10 @@
 .profile__userpic {
   grid-area: userpic;
-  max-width: 120px;
-  width: 100%;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  color: #888;
 }
 
 @media screen and (max-width: 620px) {
