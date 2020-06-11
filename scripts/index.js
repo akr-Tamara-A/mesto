@@ -25,10 +25,6 @@ function formSubmitHandler (evt) {
   let userName = document.querySelector('.profile__user-name');
   let userJob = document.querySelector('.profile__user-job');
 
-  console.log(nameInput, jobInput);
-  console.log(userName, userJob);
-  console.log(newUserName, newUserJob);
-
   userName.textContent = newUserName;
   userJob.textContent = newUserJob;
 }
