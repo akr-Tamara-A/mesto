@@ -1,6 +1,7 @@
 .profile__user {
   grid-area: user;
   align-self: center;
+  max-width: 460px;
   margin: 0 17px 0 30px;
 }
 
