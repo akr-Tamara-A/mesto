@@ -1,81 +1,44 @@
+let popup = document.querySelector('.popup');
+let popupOpenButton = document.querySelector('.button_type_edit-profile');
+let popupCloseButton = document.querySelector('.popup__close');
 
+let userName = document.querySelector('.profile__user-name');
+let userJob = document.querySelector('.profile__user-job');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-const popup = document.querySelector('.popup');
-const popupOpen = document.querySelector('.button__edit-profile');
-const popupClose = document.querySelector('.popup__close');
-
-function togglePopup() {
-  popup.classList.toggle('popup__opened');
-}
-
-popupOpen.addEventListener('click', togglePopup);
-popupClose.addEventListener('click', togglePopup);
-
-
-
+let formPopup = document.querySelector('.popup__container');
+let formUserName = document.querySelector('.popup__input_type_username');
+let formUserJob = document.querySelector('.popup__input_type_about');
 let formSubmit = document.querySelector('.popup__submit');
 
+// Отмена стандартной отправки формы
 function formSubmitHandler (evt) {
   evt.preventDefault(); 
-  
-  let nameInput = document.querySelector('.popup__username')
-  let jobInput = document.querySelector('.popup__about')
-
-  let newUserName = nameInput.value;
-  let newUserJob = jobInput.value;
-
-  let userName = document.querySelector('.profile__user-name');
-  let userJob = document.querySelector('.profile__user-job');
-
-  userName.textContent = newUserName;
-  userJob.textContent = newUserJob;
 }
 
-formSubmit.addEventListener('submit', formSubmitHandler);
-formSubmit.addEventListener('click', formSubmitHandler);
-formSubmit.addEventListener('click', togglePopup);
+formPopup.addEventListener('submit', formSubmitHandler);
 
-*/
+// Открытие редактирования профиля пользователя
+function openPopup() {
+  popup.classList.add('popup_opened');
+  formUserName.value = userName.textContent;
+  formUserJob.value = userJob.textContent;
+}
 
+popupOpenButton.addEventListener('click', openPopup);
 
+// Закрытие редактирования профиля пользователя
+function closePopup() {
+  popup.classList.remove('popup_opened');
+}
 
+popupCloseButton.addEventListener('click', closePopup);
 
+// Замена данных профиля пользователя
+function newValuePopup() {
+  userName.textContent = formUserName.value;
+  userJob.textContent = formUserJob.value;
+  closePopup();
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+formSubmit.addEventListener('click', newValuePopup);
 
