@@ -1,4 +1,4 @@
-.button__add-post {
+.button_add-post {
   width: 150px;
   height: 50px;
   border: 2px solid #ffffff;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (max-width: 780px) {
-  .button__add-post {
+  .button_add-post {
     width: 282px;
     margin-top: 36px;
     transform: translateX(53.5%);
@@ -15,7 +15,7 @@
 }
 
 @media screen and (max-width: 620px) {
-  .button__add-post {
+  .button_add-post {
     transform: translateX(0);
   }
 }

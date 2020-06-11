@@ -1,4 +1,4 @@
-.button__edit-profile {
+.button_edit-profile {
   grid-area: edit;
   width: 24px;
   height: 24px;
@@ -9,14 +9,14 @@
 }
 
 @media screen and (max-width: 780px) {
-  .button__edit-profile {
+  .button_edit-profile {
     width: 21px;
     height: 21px;
   }
 }
 
 @media screen and (max-width: 620px) {
-  .button__edit-profile {
+  .button_edit-profile {
     width: 18px;
     height: 18px;
   }
