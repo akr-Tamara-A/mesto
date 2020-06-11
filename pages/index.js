@@ -33,7 +33,7 @@ function formSubmitHandler (evt) {
   userJob.textContent = newUserJob;
 }
 
-formSubmit.addEventListener('submit', formSubmitHandler);
+formSubmit.addEventListener('click', formSubmitHandler);
 
 
 
