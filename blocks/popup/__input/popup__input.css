@@ -8,6 +8,8 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  border: 0;
+  border-bottom: 1px solid rgba(00, 00, 00, .2);
 }
 
 .popup__input:nth-of-type(2) {
@@ -22,5 +24,5 @@
 }
 
 .popup__input:focus {
-  outline: 2px solid rgb(64, 154, 244);
+  outline: 2px solid rgba(64, 154, 244);
 }

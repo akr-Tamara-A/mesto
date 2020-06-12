@@ -10,12 +10,6 @@ let formUserName = document.querySelector('.popup__input_type_username');
 let formUserJob = document.querySelector('.popup__input_type_about');
 let formSubmit = document.querySelector('.popup__submit');
 
-// Отмена стандартной отправки формы
-function formSubmitHandler (evt) {
-  evt.preventDefault(); 
-}
-
-formPopup.addEventListener('submit', formSubmitHandler);
 
 // Открытие редактирования профиля пользователя
 function openPopup() {
@@ -27,6 +21,7 @@ function openPopup() {
 
 popupOpenButton.addEventListener('click', openPopup);
 
+
 // Закрытие редактирования профиля пользователя
 function closePopup() {
   popup.classList.remove('popup_opened');
@@ -35,8 +30,10 @@ function closePopup() {
 
 popupCloseButton.addEventListener('click', closePopup);
 
-// Замена данных профиля пользователя
-function newValuePopup() {
+
+// Отмена стандартной отправки формы и замена данных профиля пользователя
+function newValuePopup(evt) {
+  evt.preventDefault(); 
   userName.textContent = formUserName.value;
   userJob.textContent = formUserJob.value;
   closePopup();
