@@ -37,14 +37,15 @@
           <button type="button" class="button button_type_edit-profile"></button>
           </div>
         <div class="profile__add-post">
-          <button type="button" class="button button_type_add-post"></button>
+          <button type="button" class="button button_type_add-foto"></button>
         </div>
       </div>
 
       <section class="elements page__section">
         <ul class="elements__container">
-          <li class="elements__item">
-            <figure class="element">
+
+          <li class="elements__item element">
+            <figure class="element__wrapper">
               <div class="element__head">
                 <img src="./images/01__arctic-ocean__full.jpg" alt="Парусник возле заснеженого берега в Северном Ледовитом океане" 
                 class="element__image">
@@ -58,8 +59,8 @@
           </li>
 
   
-          <li class="elements__item">
-            <figure class="element">
+          <li class="elements__item element">
+            <figure class="element__wrapper">
               <div class="element__head">
                 <img src="./images/02__caspian-sea__full.jpg" alt="Восход на Каспийском море близ пляжа Чалус" class="element__image">
               </div>
@@ -71,8 +72,8 @@
             <button type="button" class="element__delete button button_type_delete"></button>
           </li>
   
-          <li class="elements__item">
-            <figure class="element">
+          <li class="elements__item element">
+            <figure class="element__wrapper">
               <div class="element__head">
                 <img src="./images/03__volga__full.jpg" alt="Баржа на реке Волге" class="element__image">
               </div>
@@ -84,8 +85,8 @@
             <button type="button" class="element__delete button button_type_delete"></button>
           </li>
   
-          <li class="elements__item">
-            <figure class="element">
+          <li class="elements__item element">
+            <figure class="element__wrapper">
               <div class="element__head">
                 <img src="./images/04__irtysh__full.jpg" alt="Закат над рекой Иртыш" class="element__image">
               </div>
@@ -97,8 +98,8 @@
             <button type="button" class="element__delete button button_type_delete"></button>
           </li>
   
-          <li class="elements__item">
-            <figure class="element">
+          <li class="elements__item element">
+            <figure class="element__wrapper">
               <div class="element__head">
                 <img src="./images/05__irtysh__full.jpg" alt="Яхты на реке Иртыш" class="element__image">
               </div>
@@ -110,8 +111,8 @@
             <button type="button" class="element__delete button button_type_delete"></button>
           </li>
   
-          <li class="elements__item">
-            <figure class="element">
+          <li class="elements__item element">
+            <figure class="element__wrapper">
               <div class="element__head">
                 <img src="./images/06__enecei__full.jpg" alt="Река Енисей возле Саяногорска" class="element__image">
               </div>
@@ -132,33 +133,75 @@
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
 
-    <div class="popup popup_type_form">
+    <div id="popupEditProfile" class="popup popup_style_form">
       <div class="popup__container">
-        <input name="editProfileClose" type="button" value="Закрыть окно" class="popup__close">
-        <form name="editProfile" class="popup__form">
+        <button 
+              name="editProfileClose" 
+              type="button" 
+              title="Закрыть окно" 
+              class="popup__close">
+        </button>
+        <form 
+              name="editProfile" 
+              class="popup__form">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input name="editProfileUserName" type="text" placeholder="Имя пользователя" class="popup__input popup__input_type_username">
-          <input name="editProfileUserJob" type="text" placeholder="О себе" class="popup__input popup__input_type_about">
-          <input name="editProfileSubmit" type="submit" value="Сохранить" class="popup__submit">
+          <input 
+                name="editProfileUserName" 
+                type="text" 
+                placeholder="Имя пользователя" 
+                class="popup__input popup__input_type_username">
+          <input 
+                name="editProfileUserJob" 
+                type="text" 
+                placeholder="О себе" 
+                class="popup__input popup__input_type_about">
+          <input 
+                name="editProfileSubmit" 
+                type="submit" 
+                value="Сохранить" 
+                class="popup__submit">
         </form>
       </div>
     </div>
 
-    <div class="popup popup_type_form">
+    <div id="popupAddFoto" class="popup popup_style_form">
       <div class="popup__container">
-        <input name="addFotoClose" type="button" value="Закрыть окно" class="popup__close">
-        <form name="addFoto" class="popup__form">
+        <button 
+              name="addFotoClose" 
+              type="button" 
+              title="Закрыть окно" 
+              class="popup__close">
+        </button>
+        <form 
+              name="addFoto" class="popup__form">
           <h2 class="popup__title">Новое место</h2>
-          <input name="addFotoFotoTitile" type="text" placeholder="Название" class="popup__input popup__input_type_foto-title">
-          <input name="addFotoFotoLink" type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_type_foto-link">
-          <input name="addFotoSubmit" type="submit" value="Сохранить" class="popup__submit">
+          <input 
+                name="addFotoFotoTitile" 
+                type="text" 
+                placeholder="Название" 
+                class="popup__input popup__input_type_foto-title">
+          <input 
+                name="addFotoFotoLink" 
+                type="text" 
+                placeholder="Ссылка на картинку" 
+                class="popup__input popup__input_type_foto-link">
+          <input 
+                name="addFotoSubmit" 
+                type="submit" 
+                value="Сохранить" 
+                class="popup__submit">
         </form>
       </div>
     </div>
 
-    <div class="popup popup_type_view">
+    <div id="popupViewFoto" class="popup popup_style_view">
       <div class="popup__container">
-        <input name="viewFotoClose" type="button" value="Закрыть окно" class="popup__close">
+        <button 
+              name="viewFotoClose" 
+              type="button" 
+              title="Закрыть окно" 
+              class="popup__close">
+        </button>
         <div name="viewFoto" class="popup__view">
           <img src="./images/01__arctic-ocean__full.jpg" alt="" class="popup__foto">
           <h5 class="popup__foto-title">Волга</h5>

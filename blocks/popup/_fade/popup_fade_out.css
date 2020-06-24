@@ -1,0 +1,12 @@
+.popup_fade_out {
+  animation: fade .3s ease-in reverse;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
