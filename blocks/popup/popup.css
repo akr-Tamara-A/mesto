@@ -1,6 +1,12 @@
 @import url(./__container/popup__container.css);
+@import url(./_type/popup_type_form.css);
+@import url(./_type/popup_type_view.css);
+@import url(./__form/popup__form.css);
+@import url(./__view/popup__view.css);
 @import url(./__title/popup__title.css);
 @import url(./__input/popup__input.css);
+@import url(./__foto/popup__foto.css);
+@import url(./__foto-title/popup__foto-title.css);
 @import url(./__input/_type/popup__input_type_username.css);
 @import url(./__input/_type/popup__input_type_about.css);
 @import url(./__submit/popup__submit.css);
@@ -8,7 +14,6 @@
 
 .popup {
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.5);
   top: 0;
   right: 0;
   bottom: 0;

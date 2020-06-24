@@ -1,0 +1,19 @@
+.popup__view {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 35px;
+}
+
+
+@media screen and (max-width: 530px) {
+  .popup__view {
+    margin: 0 30px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .popup__view {
+    margin: 0 25px;
+  }
+}

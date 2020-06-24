@@ -132,17 +132,40 @@
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
 
-    <div class="popup">
-      <form name="editProfile" class="popup__container">
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <input name="editProfileUserName" type="text" placeholder="Имя пользователя" class="popup__input popup__input_type_username">
-        <input name="editProfileUserJob" type="text" placeholder="О себе" class="popup__input popup__input_type_about">
-        <input name="editProfileSubmit" type="submit" value="Сохранить" class="popup__submit">
+    <div class="popup popup_type_form popup_opened">
+      <div class="popup__container">
         <input name="editProfileClose" type="button" value="Закрыть окно" class="popup__close">
-      </form>
+        <form name="editProfile" class="popup__form">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input name="editProfileUserName" type="text" placeholder="Имя пользователя" class="popup__input popup__input_type_username">
+          <input name="editProfileUserJob" type="text" placeholder="О себе" class="popup__input popup__input_type_about">
+          <input name="editProfileSubmit" type="submit" value="Сохранить" class="popup__submit">
+        </form>
+      </div>
     </div>
 
-  </div>
-  <script src="./scripts/index.js"></script>
+    <div class="popup popup_type_form">
+      <div class="popup__container">
+        <input name="addFotoClose" type="button" value="Закрыть окно" class="popup__close">
+        <form name="addFoto" class="popup__form">
+          <h2 class="popup__title">Новое место</h2>
+          <input name="addFotoFotoTitile" type="text" placeholder="Название" class="popup__input popup__input_type_foto-title">
+          <input name="addFotoFotoLink" type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_type_foto-link">
+          <input name="addFotoSubmit" type="submit" value="Сохранить" class="popup__submit">
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_type_view">
+      <div class="popup__container">
+        <input name="viewFotoClose" type="button" value="Закрыть окно" class="popup__close">
+        <div name="viewFoto" class="popup__view">
+          <img src="./images/01__arctic-ocean__full.jpg" alt="" class="popup__foto">
+          <h5 class="popup__foto-title">Волга</h5>
+        </div>
+      </div>
+    </div>
+
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
