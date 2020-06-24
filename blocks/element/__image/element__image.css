@@ -1,10 +1,15 @@
 .element__image {
-  width: 100%;
-  max-width: 100%;
-  object-position: center;
+  object-position: center bottom;
+  object-fit: cover;
   transition: transform .3s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
 }
 
 .elements__item:hover .element__image {
-  transform: scale(1.1, 1.1);
+  transform: translate(-50%, -50%) scale(.7, .7);
 }
