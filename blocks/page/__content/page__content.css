@@ -1,5 +1,6 @@
 .page__content {
   width: 100%;
+  flex-grow: 1;
   margin-bottom: 66px;
 }
 

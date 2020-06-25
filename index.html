@@ -27,6 +27,7 @@
     </header>
 
     <main class="content page__content">
+                                                     <!-- Profile -->
       <div class="profile page__section">
         <div class="profile__container">
           <img src="./images/userpic.jpg" alt="Аватар автора" class="profile__userpic">
@@ -40,90 +41,10 @@
           <button type="button" class="button button_type_add-foto"></button>
         </div>
       </div>
-
+                                               <!-- Elements container -->
       <section class="elements page__section">
         <ul class="elements__container">
 
-          <li class="elements__item element">
-            <figure class="element__wrapper">
-              <div class="element__head">
-                <img src="./images/01__arctic-ocean__full.jpg" alt="Парусник возле заснеженого берега в Северном Ледовитом океане" 
-                class="element__image">
-            </div>
-             <figcaption class="element__figcaption">
-                <h3 title="Северный Ледовитый океан" class="element__title">Северный Ледовитый океан</h3>
-                <button type="button" class="button button_type_like element__like"></button>
-              </figcaption>
-            </figure>
-            <button type="button" class="element__delete button button_type_delete"></button>
-          </li>
-
-  
-          <li class="elements__item element">
-            <figure class="element__wrapper">
-              <div class="element__head">
-                <img src="./images/02__caspian-sea__full.jpg" alt="Восход на Каспийском море близ пляжа Чалус" class="element__image">
-              </div>
-              <figcaption class="element__figcaption">
-                <h3 title="Каспийское море" class="element__title">Каспийское море</h3>
-                <button type="button" class="button button_type_like element__like"></button>
-              </figcaption>
-            </figure>
-            <button type="button" class="element__delete button button_type_delete"></button>
-          </li>
-  
-          <li class="elements__item element">
-            <figure class="element__wrapper">
-              <div class="element__head">
-                <img src="./images/03__volga__full.jpg" alt="Баржа на реке Волге" class="element__image">
-              </div>
-              <figcaption class="element__figcaption">
-                <h3 class="element__title">Волга</h3>
-                <button type="button" class="button button_type_like element__like"></button>
-              </figcaption>
-            </figure>
-            <button type="button" class="element__delete button button_type_delete"></button>
-          </li>
-  
-          <li class="elements__item element">
-            <figure class="element__wrapper">
-              <div class="element__head">
-                <img src="./images/04__irtysh__full.jpg" alt="Закат над рекой Иртыш" class="element__image">
-              </div>
-              <figcaption class="element__figcaption">
-                <h3 class="element__title">Иртыш</h3>
-                <button type="button" class="button button_type_like element__like"></button>
-              </figcaption>
-            </figure>
-            <button type="button" class="element__delete button button_type_delete"></button>
-          </li>
-  
-          <li class="elements__item element">
-            <figure class="element__wrapper">
-              <div class="element__head">
-                <img src="./images/05__irtysh__full.jpg" alt="Яхты на реке Иртыш" class="element__image">
-              </div>
-              <figcaption class="element__figcaption">
-                <h3 class="element__title">Иртыш</h3>
-                <button type="button" class="button button_type_like element__like"></button>
-              </figcaption>
-            </figure>
-            <button type="button" class="element__delete button button_type_delete"></button>
-          </li>
-  
-          <li class="elements__item element">
-            <figure class="element__wrapper">
-              <div class="element__head">
-                <img src="./images/06__enecei__full.jpg" alt="Река Енисей возле Саяногорска" class="element__image">
-              </div>
-              <figcaption class="element__figcaption">
-                <h3 class="element__title">Енисей</h3>
-                <button type="button" class="button button_type_like element__like"></button>
-              </figcaption>
-            </figure>
-            <button type="button" class="element__delete button button_type_delete"></button>
-          </li>
-          
         </ul>
       </section>
 
@@ -132,7 +53,22 @@
     <footer class="footer page__footer page__section">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-
+                                               <!-- Template of element card -->
+    <template id="elementTemplate">
+      <li class="elements__item element">
+        <figure class="element__wrapper">
+          <div class="element__head">
+            <img class="element__image">
+          </div>
+          <figcaption class="element__figcaption">
+            <h3 class="element__title"></h3>
+            <button type="button" class="button button_type_no-like element__like"></button>
+          </figcaption>
+        </figure>
+        <button type="button" class="element__delete button button_type_delete"></button>
+      </li>
+    </template>
+                                              <!-- Popup 'Edit profile' -->
     <div id="popupEditProfile" class="popup popup_style_form">
       <div class="popup__container">
         <button 
@@ -163,7 +99,7 @@
         </form>
       </div>
     </div>
-
+                                              <!-- Popup 'Add foto' -->
     <div id="popupAddFoto" class="popup popup_style_form">
       <div class="popup__container">
         <button 
@@ -193,7 +129,7 @@
         </form>
       </div>
     </div>
-
+                                              <!-- Popup 'View full foto' -->
     <div id="popupViewFoto" class="popup popup_style_view">
       <div class="popup__container">
         <button 
@@ -203,12 +139,12 @@
               class="popup__close">
         </button>
         <div name="viewFoto" class="popup__view">
-          <img src="./images/01__arctic-ocean__full.jpg" alt="" class="popup__foto">
-          <h5 class="popup__foto-title">Волга</h5>
+          <img src="" alt="" class="popup__foto">
+          <h5 class="popup__foto-title"></h5>
         </div>
       </div>
     </div>
-
+  </div>  
     <script src="./scripts/index.js"></script>
 </body>
 </html>

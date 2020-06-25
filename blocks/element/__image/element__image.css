@@ -10,6 +10,6 @@
   transform: translate(-50%, -50%);
 }
 
-.elements__item:hover .element__image {
-  transform: translate(-50%, -50%) scale(.7, .7);
+.element__image:hover {
+  transform: translate(-50%, -50%) scale(.8, .8);
 }
