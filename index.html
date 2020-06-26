@@ -81,6 +81,8 @@
               class="popup__close">
         </button>
         <form 
+              action="#"
+              method="POST"
               name="editProfile" 
               class="popup__form">
           <h2 class="popup__title">Редактировать профиль</h2>
@@ -112,17 +114,22 @@
               class="popup__close">
         </button>
         <form 
-              name="addFoto" class="popup__form">
+              action="#"
+              method="POST"
+              name="addFoto" 
+              class="popup__form">
           <h2 class="popup__title">Новое место</h2>
           <input 
                 name="addFotoFotoTitle" 
                 type="text" 
                 placeholder="Название" 
+                required
                 class="popup__input popup__input_type_foto-title">
           <input 
                 name="addFotoFotoLink" 
-                type="text" 
+                type="url" 
                 placeholder="Ссылка на картинку" 
+                required
                 class="popup__input popup__input_type_foto-link">
           <input 
                 name="addFotoSubmit" 
