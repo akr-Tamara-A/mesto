@@ -25,12 +25,19 @@ const elementEmpty = document.querySelector('.element__empty');
 // Открытие модального окна
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  popup.classList.add('popup_fade_in');
+  setTimeout(function() {popup.classList.remove('popup_fade_in')}, 400);
 }
 
 
 // Закрытие модального окна
 function closePopup(popup) {
-  popup.classList.remove('popup_opened');
+  popup.classList.add('popup_fade_out');
+
+  setTimeout(function() {popup.classList.remove('popup_opened')}, 400);
+  setTimeout(function() {popup.classList.remove('popup_fade_out')}, 400);
+  //popup.classList.remove('popup_fade_out');
+ 
 }
 
 
@@ -50,7 +57,7 @@ editProfilePopup.querySelector('.popup__close').addEventListener('click', closeE
 
 function closeEditProfilePopup() {
   closePopup(editProfilePopup);
-  editProfileOpenButton.focus();
+  //editProfileOpenButton.focus();
 }
 
 
@@ -93,7 +100,7 @@ const initialCards = [
   }
 ]
 
-// Открытие модального окна просмотра полноразмерного фото
+// Открытие окна просмотра полноразмерного фото
 function openViewFoto(elem) {
   elem.querySelector('.element__image').addEventListener('click', function(evt) {
     const elementFoto = evt.target;
@@ -130,7 +137,7 @@ function deleteElement(elem) {
   elem.querySelector('.button_type_delete').addEventListener('click', function(evt) {
     const deleteButton = evt.target;
     const element = deleteButton.closest('.element');
-    element.remove();
+    setTimeout(function() {element.remove()}, 300);
     toggleEmptyCardElement();
   })
 }
@@ -222,9 +229,3 @@ function addFoto (fotoTitleValue, fotoLinkValue) {
 }
 
 
-
-
-
-// при добавлении карточки (если в elementContainer.children хайден класса нету) => добавить хайден класс.
-//                         (если в elementContainer.children хайден класс есть) => ничего не делать.
-// 
