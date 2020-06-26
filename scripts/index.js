@@ -153,7 +153,7 @@ function closeAddFotoPopup() {
   closePopup(addFotoPopup);
   formFotoTitle.value = "";
   formFotoLink.value = "";
-  editProfileOpenButton.focus();
+  addFotoOpenButton.focus();
 }
 
 
