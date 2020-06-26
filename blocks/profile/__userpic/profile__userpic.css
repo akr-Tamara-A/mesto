@@ -7,7 +7,7 @@
   color: #888;
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 680px) {
   .profile__userpic {
      justify-self: center;
   }

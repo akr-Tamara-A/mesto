@@ -18,18 +18,18 @@ const popupFotoLink = viewFotoPopup.querySelector('.popup__foto');
 const popupFotoTitle = viewFotoPopup.querySelector('.popup__foto-title');
 
 const elementContainer = document.querySelector('.elements__container');
+const elementEmpty = document.querySelector('.element__empty');
+
+
 
 // Открытие модального окна
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  popup.classList.add('popup_fade_in');
 }
 
 
 // Закрытие модального окна
 function closePopup(popup) {
-  popup.classList.remove('popup_fade_in');
-  popup.classList.add('popup_fade_out');
   popup.classList.remove('popup_opened');
 }
 
@@ -131,12 +131,14 @@ function deleteElement(elem) {
     const deleteButton = evt.target;
     const element = deleteButton.closest('.element');
     element.remove();
+    toggleEmptyCardElement();
   })
 }
 
 
 // Открытие окна добавления фото
 addFotoOpenButton.addEventListener('click', openAddFotoPopup);
+elementEmpty.addEventListener('click', openAddFotoPopup);
 
 function openAddFotoPopup() {
   openPopup(addFotoPopup);
@@ -171,9 +173,23 @@ initialCards.forEach(function(elem) {
   buttonLike(cardElement);
 
   deleteElement(cardElement);
-  
+
   elementContainer.append(cardElement);
 })
+
+// Обработка заглушки 
+toggleEmptyCardElement();
+
+function toggleEmptyCardElement() {
+  const cards = elementContainer.children;
+  const arrayCards = Array.from(cards);
+
+  if (arrayCards.length < 2) {
+    elementEmpty.classList.remove('element_hidden');
+  } else {
+    elementEmpty.classList.add('element_hidden');
+  }
+}
 
 
 // Добавление карточки на страницу пользователем
@@ -201,7 +217,14 @@ function addFoto (fotoTitleValue, fotoLinkValue) {
   elementContainer.prepend(cardElement);
 
   closeAddFotoPopup();
+
+  toggleEmptyCardElement();
 }
 
 
 
+
+
+// при добавлении карточки (если в elementContainer.children хайден класса нету) => добавить хайден класс.
+//                         (если в elementContainer.children хайден класс есть) => ничего не делать.
+// 

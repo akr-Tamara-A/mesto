@@ -10,4 +10,5 @@
 @import url(../blocks/popup/popup_opened.css);
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);
+@import url(../blocks/element/element_hidden.css);
 @import url(../blocks/footer/footer.css);
