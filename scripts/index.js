@@ -20,7 +20,7 @@ const popupFotoTitle = viewFotoPopup.querySelector('.popup__foto-title');
 const elementContainer = document.querySelector('.elements__container');
 const elementEmpty = document.querySelector('.element__empty');
 
-
+toggleEmptyCardElement();
 
 // Открытие модального окна
 function openPopup(popup) {
@@ -135,7 +135,7 @@ function deleteElement(elem) {
   elem.querySelector('.button_type_delete').addEventListener('click', function(evt) {
     const deleteButton = evt.target;
     const element = deleteButton.closest('.element');
-    setTimeout(function() {element.remove()}, 300);
+    element.remove();
     toggleEmptyCardElement();
   })
 }
@@ -179,12 +179,12 @@ initialCards.forEach(function(elem) {
 
   deleteElement(cardElement);
 
+  toggleEmptyCardElement();
   elementContainer.append(cardElement);
+
 })
 
 // Обработка заглушки 
-toggleEmptyCardElement();
-
 function toggleEmptyCardElement() {
   const cards = elementContainer.children;
   const arrayCards = Array.from(cards);
@@ -214,16 +214,14 @@ function addFoto (fotoTitleValue, fotoLinkValue) {
   cardElement.querySelector('.element__title').textContent = fotoTitleValue;
 
   openViewFoto(cardElement);
-
   buttonLike(cardElement);
-
   deleteElement(cardElement);
 
   elementContainer.prepend(cardElement);
 
-  closeAddFotoPopup();
-
   toggleEmptyCardElement();
+
+  closeAddFotoPopup();
 }
 
 
