@@ -1,5 +1,7 @@
 .header__logo-link {
   text-decoration: none;
+  -webkit-transition: opacity .3s ease;
+  -o-transition: opacity .3s ease;
   transition: opacity .3s ease;
 }
 

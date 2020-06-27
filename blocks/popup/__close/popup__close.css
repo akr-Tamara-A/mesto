@@ -8,9 +8,12 @@
   width: 35px;
   border: none;
   border-radius: 10px;
+  -webkit-transition: opacity .3s ease;
+  -o-transition: opacity .3s ease;
   transition: opacity .3s ease;
   cursor: pointer;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
 .popup__close:hover {

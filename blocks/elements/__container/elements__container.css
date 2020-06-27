@@ -2,10 +2,15 @@
   max-width: 882px;
   list-style-type: none;
   padding: 0;
+  display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
   row-gap: 20px;
-  column-gap: 18px;
+  -webkit-column-gap: 18px;
+     -moz-column-gap: 18px;
+          column-gap: 18px;
   margin: 0 auto;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }

@@ -1,5 +1,15 @@
 .popup_fade_in {
-  animation: fade .4s ease forwards;
+  -webkit-animation: fade .4s ease forwards;
+          animation: fade .4s ease forwards;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fade {
