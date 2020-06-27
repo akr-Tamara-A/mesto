@@ -127,9 +127,16 @@ function closeViewFotoPopup() {
 
 
 // Обработка кнопки like
-function buttonLike(elem) {
+function buttonLikeToggle(elem) {
   elem.querySelector('.element__like').addEventListener('click', function(evt) {
-    evt.target.classList.toggle('button_type_like');
+    buttonLike = evt.target;
+    if (buttonLike.classList.contains('button_type_like')) {
+      buttonLike.title = 'Добавь лайк'
+    } else {
+      buttonLike.title = 'Убрать лайк'
+    }
+    buttonLike.classList.toggle('button_type_like');
+    console.log(buttonLike.title);
   })
 }
 
@@ -179,7 +186,7 @@ initialCards.forEach(function(elem) {
 
   openViewFoto(cardElement);
   
-  buttonLike(cardElement);
+  buttonLikeToggle(cardElement);
 
   deleteElement(cardElement);
 
@@ -221,7 +228,7 @@ function addFoto (fotoTitleValue, fotoLinkValue) {
   cardElement.querySelector('.element__title').textContent = fotoTitleValue;
 
   openViewFoto(cardElement);
-  buttonLike(cardElement);
+  buttonLikeToggle(cardElement);
   deleteElement(cardElement);
 
   elementContainer.prepend(cardElement);

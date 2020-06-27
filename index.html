@@ -35,10 +35,16 @@
             <h2 class="profile__user-name">Жак-Ив Кусто</h2>
             <p class="profile__user-job">Исследователь океана</p>
           </div>
-          <button type="button" class="button button_type_edit-profile button_style_primary"></button>
+          <button 
+                  type="button" 
+                  title="Редактирование профиля"
+                  class="button button_type_edit-profile button_style_primary"></button>
           </div>
         <div class="profile__add-post">
-          <button type="button" class="button button_type_add-foto button_style_primary"></button>
+          <button 
+                  type="button" 
+                  title="Добавить фото"
+                  class="button button_type_add-foto button_style_primary"></button>
         </div>
       </div>
                                                <!-- Elements container -->
@@ -60,14 +66,22 @@
       <li class="elements__item element">
         <figure class="element__wrapper">
           <div class="element__head">
-            <img src="#" alt="Описание фотографии" class="element__image">
+            <img src="#" 
+                 alt="Описание фотографии" 
+                 class="element__image">
           </div>
           <figcaption class="element__figcaption">
             <h3 class="element__title"></h3>
-            <button type="button" class="button button_type_no-like element__like button_style_secondary"></button>
+            <button 
+                    type="button" 
+                    title="Добавь лайк"
+                    class="button button_type_no-like element__like button_style_secondary"></button>
           </figcaption>
         </figure>
-        <button type="button" class="element__delete button button_type_delete button_style_secondary"></button>
+        <button 
+                type="button" 
+                title="Удалить фото"
+                class="element__delete button button_type_delete button_style_secondary"></button>
       </li>
     </template>
                                               <!-- Popup 'Edit profile' -->
@@ -148,7 +162,7 @@
               class="popup__close">
         </button>
         <div class="popup__view">
-          <img src="№" alt="Описание фотографии" class="popup__foto">
+          <img src="#" alt="Описание фотографии" class="popup__foto">
           <h5 class="popup__foto-title">Название фотографии</h5>
         </div>
       </div>
