@@ -55,15 +55,19 @@ editProfilePopup.querySelector('.popup__close').addEventListener('click', closeE
 
 function closeEditProfilePopup() {
   closePopup(editProfilePopup);
-  //editProfileOpenButton.focus();
+  editProfileOpenButton.focus();
 }
 
 
-// Отмена стандартной отправки формы и замена данных профиля пользователя
+// Замена данных профиля пользователя
 editProfilePopup.querySelector('.popup__submit').addEventListener('click', newValueEditProfile);
 
-function newValueEditProfile(evt) {
-  evt.preventDefault(); 
+editProfilePopup.querySelector('.popup__form').addEventListener('submit', function(evt) {
+  evt.preventDefault();
+});
+
+function newValueEditProfile() {
+
   userName.textContent = formUserName.value;
   userJob.textContent = formUserJob.value;
   closeEditProfilePopup();
@@ -198,9 +202,12 @@ function toggleEmptyCardElement() {
 
 
 // Добавление карточки на страницу пользователем
-addFotoPopup.querySelector('.popup__submit').addEventListener('click', function(evt) {
-  evt.preventDefault(); 
+addFotoPopup.querySelector('.popup__submit').addEventListener('click', function() {
   addFoto(formFotoTitle.value, formFotoLink.value)
+});
+
+addFotoPopup.querySelector('.popup__form').addEventListener('submit', function(evt) {
+  evt.preventDefault();
 });
 
 function addFoto (fotoTitleValue, fotoLinkValue) {
