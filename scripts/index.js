@@ -53,16 +53,12 @@ const elementContainer = document.querySelector('.elements__container');
 // Открытие модального окна
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  popup.classList.add('popup_fade_in');
-  setTimeout(function() {popup.classList.remove('popup_fade_in')}, 400);
 }
 
 
 // Закрытие модального окна
 function closePopup(popup) {
-  popup.classList.add('popup_fade_out');
-  setTimeout(function() {popup.classList.remove('popup_opened')}, 400);
-  setTimeout(function() {popup.classList.remove('popup_fade_out')}, 400);
+  popup.classList.remove('popup_opened');
 }
 
 
