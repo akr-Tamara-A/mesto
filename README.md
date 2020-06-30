@@ -4,7 +4,7 @@
 # Проект 3: Mesto Russia
 ##### Проект сервиса для [Яндекс Практикума](https://praktikum.yandex.ru/) по [макету в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4).
 
-* Ссылка на готовый сайт https://akr-tamara-a.github.io/mesto/index.html
+##### Ссылка на готовый сайт https://akr-tamara-a.github.io/mesto/index.html
 
 ***
 ***
