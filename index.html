@@ -44,16 +44,13 @@
           <button 
                   type="button" 
                   title="Добавить фото"
-                  class="button button_type_add-foto button_style_primary"></button>
+                  class="button button_type_add-photo button_style_primary"></button>
         </div>
       </div>
                                                <!-- Elements container -->
       <div class="elements page__section">
         <ul class="elements__container">
-          <li class="elements__item element element__empty">
-            <p class="element__text">Добавьте фотографию</p>
-          </li>
-        </ul>
+
       </div>
 
     </main>
@@ -117,11 +114,11 @@
         </form>
       </div>
     </div>
-                                              <!-- Popup 'Add foto' -->
-    <div id="popupAddFoto" class="popup popup_style_form">
+                                              <!-- Popup 'Add Photo' -->
+    <div id="popupAddPhoto" class="popup popup_style_form">
       <div class="popup__container">
         <button 
-              name="addFotoClose" 
+              name="addPhotoClose" 
               type="button" 
               title="Закрыть окно" 
               class="popup__close">
@@ -129,41 +126,41 @@
         <form 
               action="#"
               method="POST"
-              name="addFoto" 
+              name="addPhoto" 
               class="popup__form">
           <h2 class="popup__title">Новое место</h2>
           <input 
-                name="addFotoFotoTitle" 
+                name="addPhotoTitle" 
                 type="text" 
                 placeholder="Название" 
                 required
-                class="popup__input popup__input_type_foto-title">
+                class="popup__input popup__input_type_photo-title">
           <input 
-                name="addFotoFotoLink" 
+                name="addPhotoPhotoLink" 
                 type="url" 
                 placeholder="Ссылка на картинку" 
                 required
-                class="popup__input popup__input_type_foto-link">
+                class="popup__input popup__input_type_photo-link">
           <input 
-                name="addFotoSubmit" 
+                name="addPhotoSubmit" 
                 type="submit" 
                 value="Сохранить" 
                 class="popup__submit">
         </form>
       </div>
     </div>
-                                              <!-- Popup 'View full foto' -->
-    <div id="popupViewFoto" class="popup popup_style_view">
+                                              <!-- Popup 'View full Photo' -->
+    <div id="popupViewPhoto" class="popup popup_style_view">
       <div class="popup__container">
         <button 
-              name="viewFotoClose" 
+              name="viewPhotoClose" 
               type="button" 
               title="Закрыть окно" 
               class="popup__close">
         </button>
         <div class="popup__view">
-          <img src="#" alt="Описание фотографии" class="popup__foto">
-          <h5 class="popup__foto-title">Название фотографии</h5>
+          <img src="#" alt="Описание фотографии" class="popup__photo">
+          <p class="popup__photo-title">Название фотографии</p>
         </div>
       </div>
     </div>
