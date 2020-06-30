@@ -111,7 +111,7 @@ function closeViewPhotoPopup() {
 
 
 // Обработка кнопки like
-function buttonLikeToggle(elem) {
+function handleButtonLike(elem) {
   elem.querySelector('.element__like').addEventListener('click', function(evt) {
     const buttonLike = evt.target;
     buttonLike.classList.toggle('button_type_like');
@@ -146,7 +146,7 @@ function closeAddPhotoPopup() {
 
 
 // Создание новой карточки
-const newCard = function(PhotoTitleValue, PhotoLinkValue) {
+const createNewCard = function(photoTitleValue, photoLinkValue) {
   const cardTemplate = document.querySelector('#elementTemplate').content;
   const cardElement = cardTemplate.cloneNode(true);
   const cardElementImage =  cardElement.querySelector('.element__image');
@@ -157,9 +157,9 @@ const newCard = function(PhotoTitleValue, PhotoLinkValue) {
   cardElementTitle.textContent = PhotoTitleValue;
 
   openViewPhoto(cardElement);
-  buttonLikeToggle(cardElement);
+  handleButtonLike(cardElement);
   deleteElement(cardElement);
-  //elementContainer.prepend(cardElement);
+
   return cardElement;
 };
 
@@ -188,12 +188,12 @@ addPhotoPopup.querySelector('.popup__close').addEventListener('click', closeAddP
 // Добавление карточки на страницу пользователем
 addPhotoPopup.querySelector('.popup__form').addEventListener('submit', function(evt) {
   evt.preventDefault();
-  elementContainer.prepend(newCard(formPhotoTitle.value, formPhotoLink.value));
+  elementContainer.prepend(createNewCard(formPhotoTitle.value, formPhotoLink.value));
   closeAddPhotoPopup();
 });
 
 // Добавление предустановленных карточек на страницу
 initialCards.forEach(function(elem) {
-    elementContainer.prepend(newCard(elem.name, elem.link));
+    elementContainer.prepend(createNewCard(elem.name, elem.link));
 });
 
