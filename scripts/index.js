@@ -24,7 +24,7 @@ const initialCards = [
     name: 'Енисей',
     link: 'https://cdn.pixabay.com/photo/2012/12/21/10/06/clouds-71498_960_720.jpg'
   }
-]
+];
 
 
 const editProfilePopup = document.querySelector('#popupEditProfile');
@@ -100,7 +100,7 @@ function openViewPhoto(elem) {
 
     popupPhotoLink.src = elementLink.src;
     popupPhotoTitle.textContent = elementTitle.textContent;
-  })
+  });
 }
 
 
@@ -113,9 +113,9 @@ function closeViewPhotoPopup() {
 // Обработка кнопки like
 function buttonLikeToggle(elem) {
   elem.querySelector('.element__like').addEventListener('click', function(evt) {
-    buttonLike = evt.target;
+    const buttonLike = evt.target;
     buttonLike.classList.toggle('button_type_like');
-  })
+  });
 }
 
 
@@ -125,7 +125,7 @@ function deleteElement(elem) {
     const deleteButton = evt.target;
     const element = deleteButton.closest('.element');
     element.remove();
-  })
+  });
 }
 
 
@@ -161,7 +161,7 @@ const newCard = function(PhotoTitleValue, PhotoLinkValue) {
   deleteElement(cardElement);
   //elementContainer.prepend(cardElement);
   return cardElement;
-}
+};
 
 
 // Открытие окна редактирования профиля пользователя
@@ -195,5 +195,5 @@ addPhotoPopup.querySelector('.popup__form').addEventListener('submit', function(
 // Добавление предустановленных карточек на страницу
 initialCards.forEach(function(elem) {
     elementContainer.prepend(newCard(elem.name, elem.link));
-})
+});
 
