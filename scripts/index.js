@@ -112,7 +112,7 @@ function closeAddPhotoPopup() {
 const createNewCard = (photoTitleValue, photoLinkValue) => {
   const cardTemplate = document.querySelector('#elementTemplate').content;
   const cardElement = cardTemplate.cloneNode(true);
-  const cardElementElement = cardElement.querySelector('.element');
+  const cardElementBox = cardElement.querySelector('.element');
   const cardElementImage = cardElement.querySelector('.element__image');
   const cardElementTitle = cardElement.querySelector('.element__title');
   const cardElementLike = cardElement.querySelector('.element__like');
@@ -137,7 +137,7 @@ const createNewCard = (photoTitleValue, photoLinkValue) => {
 
   // Удаление карточки
   cardElementClose.addEventListener('click', function() {
-    cardElementElement.remove();
+    cardElementBox.remove();
   });
   return cardElement;
 };
