@@ -49,8 +49,6 @@ const popupPhotoTitle = viewPhotoPopup.querySelector('.popup__photo-title');
 const elementContainer = document.querySelector('.elements__container');
 
 
-
-
 // Открытие модального окна
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -148,8 +146,10 @@ const createNewCard = (photoTitleValue, photoLinkValue) => {
 // Открытие окна редактирования профиля пользователя
 editProfileOpenButton.addEventListener('click', openEditProfilePopup);
 
+
 // Закрытие окна редактирования профиля пользователя
 editProfilePopup.querySelector('.popup__close').addEventListener('click', closeEditProfilePopup);
+
 
 // Замена данных профиля пользователя
 editProfilePopup.querySelector('.popup__form').addEventListener('submit', function(evt) {
@@ -157,14 +157,18 @@ editProfilePopup.querySelector('.popup__form').addEventListener('submit', functi
   addNewValueEditProfile();
 });
 
+
 // Закрытие окна просмотра полноразмерного фото
 viewPhotoPopup.querySelector('.popup__close').addEventListener('click', closeViewPhotoPopup);
+
 
 // Открытие окна добавления фото
 addPhotoOpenButton.addEventListener('click', openAddPhotoPopup);
 
+
 // Закрытие окна добавления фото
 addPhotoPopup.querySelector('.popup__close').addEventListener('click', closeAddPhotoPopup);
+
 
 // Добавление карточки на страницу пользователем
 addPhotoPopup.querySelector('.popup__form').addEventListener('submit', function(evt) {
@@ -173,9 +177,8 @@ addPhotoPopup.querySelector('.popup__form').addEventListener('submit', function(
   closeAddPhotoPopup();
 });
 
+
 // Добавление предустановленных карточек на страницу
 initialCards.forEach((elem) => {
     elementContainer.prepend(createNewCard(elem.name, elem.link));
 });
-
-
