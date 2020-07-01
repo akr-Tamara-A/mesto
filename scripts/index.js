@@ -50,6 +50,7 @@ const elementContainer = document.querySelector('.elements__container');
 
 
 
+
 // Открытие модального окна
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -79,7 +80,7 @@ function closeEditProfilePopup() {
 
 
 // Замена данных профиля пользователя
-function newValueEditProfile() {
+function addNewValueEditProfile() {
   userName.textContent = formUserName.value;
   userJob.textContent = formUserJob.value;
 
@@ -87,45 +88,9 @@ function newValueEditProfile() {
 }
 
 
-// Открытие окна просмотра полноразмерного фото
-function openViewPhoto(elem) {
-  elem.querySelector('.element__image').addEventListener('click', function(evt) {
-    const elementPhoto = evt.target;
-    const element = elementPhoto.closest('.element');
-    
-    const elementTitle = element.querySelector('.element__title');
-    const elementLink = element.querySelector('.element__image');
-
-    openPopup(viewPhotoPopup);
-
-    popupPhotoLink.src = elementLink.src;
-    popupPhotoTitle.textContent = elementTitle.textContent;
-  });
-}
-
-
 // Закрытие окна просмотра полноразмерного фото
 function closeViewPhotoPopup() {
   closePopup(viewPhotoPopup);
-}
-
-
-// Обработка кнопки like
-function handleButtonLike(elem) {
-  elem.querySelector('.element__like').addEventListener('click', function(evt) {
-    const buttonLike = evt.target;
-    buttonLike.classList.toggle('button_type_like');
-  });
-}
-
-
-// Удаление карточки
-function deleteElement(elem) {
-  elem.querySelector('.button_type_delete').addEventListener('click', function(evt) {
-    const deleteButton = evt.target;
-    const element = deleteButton.closest('.element');
-    element.remove();
-  });
 }
 
 
@@ -146,20 +111,36 @@ function closeAddPhotoPopup() {
 
 
 // Создание новой карточки
-const createNewCard = function(photoTitleValue, photoLinkValue) {
+const createNewCard = (photoTitleValue, photoLinkValue) => {
   const cardTemplate = document.querySelector('#elementTemplate').content;
   const cardElement = cardTemplate.cloneNode(true);
-  const cardElementImage =  cardElement.querySelector('.element__image');
+  const cardElementElement = cardElement.querySelector('.element');
+  const cardElementImage = cardElement.querySelector('.element__image');
   const cardElementTitle = cardElement.querySelector('.element__title');
+  const cardElementLike = cardElement.querySelector('.element__like');
+  const cardElementClose = cardElement.querySelector('.element__delete');
   
-  cardElementImage.src = PhotoLinkValue;
-  cardElementImage.alt = PhotoTitleValue;
-  cardElementTitle.textContent = PhotoTitleValue;
+  cardElementImage.src = photoLinkValue;
+  cardElementImage.alt = photoTitleValue;
+  cardElementTitle.textContent = photoTitleValue;
+  
+  // Открытие окна просмотра полноразмерного фото
+  cardElementImage.addEventListener('click', function() {
+    openPopup(viewPhotoPopup);
+    popupPhotoLink.src = photoLinkValue;
+    popupPhotoLink.alt = photoTitleValue;
+    popupPhotoTitle.textContent = photoTitleValue;
+  });
+  
+  // Обработка кнопки like
+  cardElementLike.addEventListener('click', function() {
+    cardElementLike.classList.toggle('button_type_like');
+  });
 
-  openViewPhoto(cardElement);
-  handleButtonLike(cardElement);
-  deleteElement(cardElement);
-
+  // Удаление карточки
+  cardElementClose.addEventListener('click', function() {
+    cardElementElement.remove();
+  });
   return cardElement;
 };
 
@@ -173,7 +154,7 @@ editProfilePopup.querySelector('.popup__close').addEventListener('click', closeE
 // Замена данных профиля пользователя
 editProfilePopup.querySelector('.popup__form').addEventListener('submit', function(evt) {
   evt.preventDefault();
-  newValueEditProfile();
+  addNewValueEditProfile();
 });
 
 // Закрытие окна просмотра полноразмерного фото
@@ -193,7 +174,8 @@ addPhotoPopup.querySelector('.popup__form').addEventListener('submit', function(
 });
 
 // Добавление предустановленных карточек на страницу
-initialCards.forEach(function(elem) {
+initialCards.forEach((elem) => {
     elementContainer.prepend(createNewCard(elem.name, elem.link));
 });
+
 
