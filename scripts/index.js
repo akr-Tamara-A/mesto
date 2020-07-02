@@ -116,7 +116,7 @@ const createNewCard = (photoTitleValue, photoLinkValue) => {
   const cardElementImage = cardElement.querySelector('.element__image');
   const cardElementTitle = cardElement.querySelector('.element__title');
   const cardElementLike = cardElement.querySelector('.element__like');
-  const cardElementClose = cardElement.querySelector('.element__delete');
+  const cardElementDelete = cardElement.querySelector('.element__delete');
   
   cardElementImage.src = photoLinkValue;
   cardElementImage.alt = photoTitleValue;
@@ -124,10 +124,10 @@ const createNewCard = (photoTitleValue, photoLinkValue) => {
   
   // Открытие окна просмотра полноразмерного фото
   cardElementImage.addEventListener('click', function() {
-    openPopup(viewPhotoPopup);
     popupPhotoLink.src = photoLinkValue;
     popupPhotoLink.alt = photoTitleValue;
     popupPhotoTitle.textContent = photoTitleValue;
+    openPopup(viewPhotoPopup);
   });
   
   // Обработка кнопки like
@@ -136,7 +136,7 @@ const createNewCard = (photoTitleValue, photoLinkValue) => {
   });
 
   // Удаление карточки
-  cardElementClose.addEventListener('click', function() {
+  cardElementDelete.addEventListener('click', function() {
     cardElementBox.remove();
   });
   return cardElement;
