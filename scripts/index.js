@@ -27,6 +27,7 @@ const initialCards = [
 ];
 
 
+
 const editProfilePopup = document.querySelector('#popupEditProfile');
 const addPhotoPopup = document.querySelector('#popupAddPhoto');
 const viewPhotoPopup = document.querySelector('#popupViewPhoto');
@@ -55,10 +56,44 @@ function openPopup(popup) {
 }
 
 
+// Очистка форм
+function cleanForms() {
+  const formList = Array.from(document.querySelectorAll('.popup__form'));
+  formList.forEach(function (form) {
+    form.reset();
+  });
+};
+
+
 // Закрытие модального окна
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  cleanForms()
 }
+
+
+// Закрытие модального окна при нажатии Esc и клике на оверлей 
+const popups = document.querySelectorAll('.popup');
+
+popups.forEach((popup) => {
+  const popupCloseButton = popup.querySelector('.popup__close');
+  popupCloseButton.addEventListener('click', function() {
+    closePopup(popup);
+  });
+
+  popup.addEventListener('click', function(evt) {
+    e = evt || window.event;
+    if (e.target === this) {
+      closePopup(popup);
+    }
+  });
+
+  window.addEventListener('keydown', function(evt) {
+    if (evt.key === 'Escape') {
+      closePopup(popup);
+    };
+  });
+});
 
 
 // Открытие окна редактирования профиля пользователя
@@ -71,24 +106,12 @@ function openEditProfilePopup() {
 }
 
 
-// Закрытие окна редактирования профиля пользователя
-function closeEditProfilePopup() {
-  closePopup(editProfilePopup);
-}
-
-
 // Замена данных профиля пользователя
 function addNewValueEditProfile() {
   userName.textContent = formUserName.value;
   userJob.textContent = formUserJob.value;
 
-  closeEditProfilePopup();
-}
-
-
-// Закрытие окна просмотра полноразмерного фото
-function closeViewPhotoPopup() {
-  closePopup(viewPhotoPopup);
+  closePopup(editProfilePopup);
 }
 
 
@@ -96,15 +119,6 @@ function closeViewPhotoPopup() {
 function openAddPhotoPopup() {
   openPopup(addPhotoPopup);
   formPhotoTitle.focus();
-}
-
-
-// Закрытие окна добавления фото
-function closeAddPhotoPopup() {
-  closePopup(addPhotoPopup);
-
-  formPhotoTitle.value = "";
-  formPhotoLink.value = "";
 }
 
 
@@ -147,10 +161,6 @@ const createNewCard = (photoTitleValue, photoLinkValue) => {
 editProfileOpenButton.addEventListener('click', openEditProfilePopup);
 
 
-// Закрытие окна редактирования профиля пользователя
-editProfilePopup.querySelector('.popup__close').addEventListener('click', closeEditProfilePopup);
-
-
 // Замена данных профиля пользователя
 editProfilePopup.querySelector('.popup__form').addEventListener('submit', function(evt) {
   evt.preventDefault();
@@ -158,23 +168,15 @@ editProfilePopup.querySelector('.popup__form').addEventListener('submit', functi
 });
 
 
-// Закрытие окна просмотра полноразмерного фото
-viewPhotoPopup.querySelector('.popup__close').addEventListener('click', closeViewPhotoPopup);
-
-
 // Открытие окна добавления фото
 addPhotoOpenButton.addEventListener('click', openAddPhotoPopup);
-
-
-// Закрытие окна добавления фото
-addPhotoPopup.querySelector('.popup__close').addEventListener('click', closeAddPhotoPopup);
 
 
 // Добавление карточки на страницу пользователем
 addPhotoPopup.querySelector('.popup__form').addEventListener('submit', function(evt) {
   evt.preventDefault();
   elementContainer.prepend(createNewCard(formPhotoTitle.value, formPhotoLink.value));
-  closeAddPhotoPopup();
+  closePopup(addPhotoPopup);
 });
 
 
