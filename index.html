@@ -96,18 +96,34 @@
               action="#"
               method="POST"
               name="editProfile" 
+              novalidate
               class="popup__form">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input 
-                name="editProfileUserName" 
-                type="text" 
-                placeholder="Имя пользователя" 
-                class="popup__input popup__input_type_username">
-          <input 
-                name="editProfileUserJob" 
-                type="text" 
-                placeholder="О себе" 
-                class="popup__input popup__input_type_about">
+          <label class="popup__form-field">
+            <input 
+                  id="input-userName"
+                  name="editProfileUserName" 
+                  type="text" 
+                  required
+                  minlength="2"
+                  maxlength="40"
+                  pattern="^[A-Za-zА-Яа-яЁё\s-]+$"
+                  placeholder="Имя пользователя" 
+                  class="popup__input popup__input_type_username">
+            <span id="input-userName-error" class="popup__input-error"></span>
+          </label>
+          <label class="popup__form-field">
+            <input 
+                  id="input-userJob"
+                  name="editProfileUserJob" 
+                  type="text" 
+                  required
+                  minlength="2"
+                  maxlength="200"
+                  placeholder="О себе" 
+                  class="popup__input popup__input_type_about">
+            <span id="input-userJob-error" class="popup__input-error"></span>
+          </label>
           <input 
                 name="editProfileSubmit" 
                 type="submit" 
@@ -129,20 +145,31 @@
               action="#"
               method="POST"
               name="addPhoto" 
+              novalidate
               class="popup__form">
           <h2 class="popup__title">Новое место</h2>
-          <input 
-                name="addPhotoTitle" 
-                type="text" 
-                placeholder="Название" 
-                required
-                class="popup__input popup__input_type_photo-title">
-          <input 
-                name="addPhotoPhotoLink" 
-                type="url" 
-                placeholder="Ссылка на картинку" 
-                required
-                class="popup__input popup__input_type_photo-link">
+          <label class="popup__form-field">
+            <input 
+                  id="input-photoTitle"
+                  name="addPhotoTitle" 
+                  type="text" 
+                  placeholder="Название" 
+                  required
+                  minlength="1"
+                  maxlength="30"
+                  class="popup__input popup__input_type_photo-title">
+            <span id="input-photoTitle-error" class="popup__input-error"></span>
+          </label>
+          <label class="popup__form-field">
+            <input 
+                  id="input-photoLink"
+                  name="addPhotoPhotoLink" 
+                  type="url" 
+                  placeholder="Ссылка на картинку" 
+                  required
+                  class="popup__input popup__input_type_photo-link">
+            <span id="input-photoLink-error" class="popup__input-error"></span>
+          </label>
           <input 
                 name="addPhotoSubmit" 
                 type="submit" 
@@ -167,6 +194,7 @@
       </div>
     </div>
   </div>  
-    <script src="./scripts/index.js"></script>
+  <script src="./scripts/validate.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>

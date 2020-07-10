@@ -1,7 +1,7 @@
 .popup__input {
   min-height: 27px;
   width: 100%;
-  margin: 0 0 30px;
+  margin: 0;
   padding: 0;
   font-size: 14px;
   line-height: 1.2;
@@ -25,6 +25,12 @@
     min-height: 24px;
   }
 }
+
 .popup__input:focus {
   outline: 2px solid rgba(64, 154, 244);
+  outline-offset: 2px;
+}
+
+.popup__input::placeholder {
+  color: #c4c4c4;
 }

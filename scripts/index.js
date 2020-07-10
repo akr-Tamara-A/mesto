@@ -27,6 +27,7 @@ const initialCards = [
 ];
 
 
+const popups = document.querySelectorAll('.popup');
 
 const editProfilePopup = document.querySelector('#popupEditProfile');
 const addPhotoPopup = document.querySelector('#popupAddPhoto');
@@ -53,34 +54,52 @@ const elementContainer = document.querySelector('.elements__container');
 // Открытие модального окна
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+
+  document.body.style.overflowY = 'hidden';
 }
-
-
-// Очистка форм
-function cleanForms() {
-  const formList = Array.from(document.querySelectorAll('.popup__form'));
-  formList.forEach(function (form) {
-    form.reset();
-  });
-};
 
 
 // Закрытие модального окна
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  cleanForms()
+  document.body.style.overflowY = '';
+
+  if (popup.classList.contains('popup_style_form')) {
+    clearPopupForm(popup)
+  };
 }
 
 
-// Закрытие модального окна при нажатии Esc и клике на оверлей 
-const popups = document.querySelectorAll('.popup');
+//Очистка формы при закрытии попапа
+function clearPopupForm(popup) {
+  //Сброс формы
+  const popupForm = popup.querySelector('.popup__form');
+  popupForm.reset();
+  
+  //Очистка поля сообщения об ошибки
+  const popupErrorMessages = popup.querySelectorAll('.popup__input-error');
+  popupErrorMessages.forEach((message) => {
+    message.textContent = '';
+  });
 
+  //Очистка внешнего вида ошибки
+  popup.querySelectorAll('.popup__input').forEach((input) => {
+    input.classList.remove('popup__input_type_error');
+  });
+
+}
+
+
+// Условия закрытия модального окна:
 popups.forEach((popup) => {
   const popupCloseButton = popup.querySelector('.popup__close');
+  
+  //...при нажатии кнопки
   popupCloseButton.addEventListener('click', function() {
     closePopup(popup);
   });
 
+  //...при клике на оверлей
   popup.addEventListener('click', function(evt) {
     e = evt || window.event;
     if (e.target === this) {
@@ -88,6 +107,7 @@ popups.forEach((popup) => {
     }
   });
 
+  //...при нажатии Esc
   window.addEventListener('keydown', function(evt) {
     if (evt.key === 'Escape') {
       closePopup(popup);
@@ -103,6 +123,11 @@ function openEditProfilePopup() {
 
   formUserName.value = userName.textContent;
   formUserJob.value = userJob.textContent;
+
+  if ((formUserName.value && formUserJob.value) !== '') {
+    editProfilePopup.querySelector('.popup__submit').removeAttribute('disabled', true)
+  }
+
 }
 
 
@@ -165,6 +190,7 @@ editProfileOpenButton.addEventListener('click', openEditProfilePopup);
 editProfilePopup.querySelector('.popup__form').addEventListener('submit', function(evt) {
   evt.preventDefault();
   addNewValueEditProfile();
+  closePopup(popup);
 });
 
 
