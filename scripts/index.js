@@ -55,7 +55,6 @@ const elementContainer = document.querySelector('.elements__container');
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   const popupCloseButton = popup.querySelector('.popup__close');
-  document.body.style.overflowY = 'hidden';
 
   //Обработчик закрытия попапа с помощью кнопки "закрыть"
   popupCloseButton.addEventListener('click', function () {
@@ -90,8 +89,6 @@ function closePopup(popup) {
 
   popup.classList.remove('popup_opened');
   document.body.style.overflowY = '';
-  
-  window.removeEventListener('keydown', closePopupWithEscape);
 }
 
 
