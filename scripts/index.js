@@ -86,7 +86,6 @@ function clearPopupForm(popup) {
   popup.querySelectorAll('.popup__input').forEach((input) => {
     input.classList.remove('popup__input_type_error');
   });
-
 }
 
 
@@ -208,3 +207,4 @@ addPhotoPopup.querySelector('.popup__form').addEventListener('submit', function(
 initialCards.forEach((elem) => {
     elementContainer.prepend(createNewCard(elem.name, elem.link));
 });
+
