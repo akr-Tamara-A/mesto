@@ -65,24 +65,24 @@ function closePopup(popup) {
   document.body.style.overflowY = '';
 
   if (popup.classList.contains('popup_style_form')) {
-    clearPopupForm(popup)
-  };
+    clearPopupForm(popup);
+  }
 }
 
 
-//Очистка формы при закрытии попапа
+//Очистка формы при закрытии попапа:
 function clearPopupForm(popup) {
-  //Сброс формы
+  //...сброс формы
   const popupForm = popup.querySelector('.popup__form');
   popupForm.reset();
   
-  //Очистка поля сообщения об ошибки
+  //...очистка поля сообщения об ошибки
   const popupErrorMessages = popup.querySelectorAll('.popup__input-error');
   popupErrorMessages.forEach((message) => {
     message.textContent = '';
   });
 
-  //Очистка внешнего вида ошибки
+  //...очистка внешнего вида ошибки
   popup.querySelectorAll('.popup__input').forEach((input) => {
     input.classList.remove('popup__input_type_error');
   });
@@ -92,16 +92,15 @@ function clearPopupForm(popup) {
 
 // Условия закрытия модального окна:
 popups.forEach((popup) => {
+  //...при нажатии кнопки "закрыть"
   const popupCloseButton = popup.querySelector('.popup__close');
-  
-  //...при нажатии кнопки
   popupCloseButton.addEventListener('click', function() {
     closePopup(popup);
   });
-
+  
   //...при клике на оверлей
   popup.addEventListener('click', function(evt) {
-    e = evt || window.event;
+    const e = evt || window.event;
     if (e.target === this) {
       closePopup(popup);
     }
@@ -111,7 +110,7 @@ popups.forEach((popup) => {
   window.addEventListener('keydown', function(evt) {
     if (evt.key === 'Escape') {
       closePopup(popup);
-    };
+    }
   });
 });
 
@@ -125,9 +124,8 @@ function openEditProfilePopup() {
   formUserJob.value = userJob.textContent;
 
   if ((formUserName.value && formUserJob.value) !== '') {
-    editProfilePopup.querySelector('.popup__submit').removeAttribute('disabled', true)
+    editProfilePopup.querySelector('.popup__submit').removeAttribute('disabled', true);
   }
-
 }
 
 
@@ -190,7 +188,7 @@ editProfileOpenButton.addEventListener('click', openEditProfilePopup);
 editProfilePopup.querySelector('.popup__form').addEventListener('submit', function(evt) {
   evt.preventDefault();
   addNewValueEditProfile();
-  closePopup(popup);
+  closePopup(editProfilePopup);
 });
 
 
