@@ -54,19 +54,44 @@ const elementContainer = document.querySelector('.elements__container');
 // Открытие модального окна
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-
+  const popupCloseButton = popup.querySelector('.popup__close');
   document.body.style.overflowY = 'hidden';
+
+  //Обработчик закрытия попапа с помощью кнопки "закрыть"
+  popupCloseButton.addEventListener('click', function () {
+    closePopup(popup);
+  });
+
+  //Обработчик закрытия попапа при клике на оверлей
+  popup.addEventListener('click', function(evt) {
+    const e = evt || window.event;
+    if (e.target === this) {
+      closePopup(popup);
+    }
+  });
+
+  //Обработчик закрытия попапа при нажатии Esc
+  window.addEventListener('keydown', closePopupWithEscape);
+}
+
+//Закрытие попапа с помощью "Esc"
+function closePopupWithEscape(evt) {
+  if (evt.key === 'Escape') {
+    closePopup(popup);
+  }
 }
 
 
 // Закрытие модального окна
 function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  document.body.style.overflowY = '';
-
   if (popup.classList.contains('popup_style_form')) {
     clearPopupForm(popup);
   }
+
+  popup.classList.remove('popup_opened');
+  document.body.style.overflowY = '';
+  
+  window.removeEventListener('keydown', closePopupWithEscape);
 }
 
 
