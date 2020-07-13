@@ -89,7 +89,7 @@ function closePopup(popup) {
 //Закрытие попапа с помощью "Esc"
 function closePopupWithEscape(evt) {
   const openedPopup = document.querySelector('.popup_opened');
-
+  
   if (evt.key === 'Escape') {
     closePopup(openedPopup);
   }
