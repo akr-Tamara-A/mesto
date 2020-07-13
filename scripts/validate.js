@@ -75,11 +75,13 @@ const enableValidation = (config) => {
 };
 
 
-enableValidation({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error_visible'
-});
+//Очистка формы при закрытии попапа:
+function clearPopupForm(popup, config) {
+  const formElement = popup.querySelector(config.formSelector);
+  formElement.reset();
+  const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
 
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement, inputElement, config);
+  });
+}

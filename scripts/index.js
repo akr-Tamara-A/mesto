@@ -50,64 +50,49 @@ const popupPhotoTitle = viewPhotoPopup.querySelector('.popup__photo-title');
 
 const elementContainer = document.querySelector('.elements__container');
 
+const cardTemplate = document.querySelector('#elementTemplate').content;
+
+const config = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__submit',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_visible'
+};
+
 
 // Открытие модального окна
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  const popupCloseButton = popup.querySelector('.popup__close');
-
-  //Обработчик закрытия попапа с помощью кнопки "закрыть"
-  popupCloseButton.addEventListener('click', function () {
-    closePopup(popup);
-  });
-
-  //Обработчик закрытия попапа при клике на оверлей
-  popup.addEventListener('click', function(evt) {
-    const e = evt || window.event;
-    if (e.target === this) {
-      closePopup(popup);
-    }
-  });
-
-  //Обработчик закрытия попапа при нажатии Esc
-  window.addEventListener('keydown', closePopupWithEscape);
-}
-
-//Закрытие попапа с помощью "Esc"
-function closePopupWithEscape(evt) {
-  if (evt.key === 'Escape') {
-    closePopup(popup);
+  if (popup.classList.contains('popup_style_form')) {
+    enableValidation(config);
   }
+
+  document.body.style.overflowY = 'hidden';
+  window.addEventListener('keydown', closePopupWithEscape);
 }
 
 
 // Закрытие модального окна
 function closePopup(popup) {
   if (popup.classList.contains('popup_style_form')) {
-    clearPopupForm(popup);
+    clearPopupForm(popup, config);
   }
-
+  
   popup.classList.remove('popup_opened');
   document.body.style.overflowY = '';
+  
+  window.removeEventListener('keydown', closePopupWithEscape);
 }
 
 
-//Очистка формы при закрытии попапа:
-function clearPopupForm(popup) {
-  //...сброс формы
-  const popupForm = popup.querySelector('.popup__form');
-  popupForm.reset();
-  
-  //...очистка поля сообщения об ошибки
-  const popupErrorMessages = popup.querySelectorAll('.popup__input-error');
-  popupErrorMessages.forEach((message) => {
-    message.textContent = '';
-  });
+//Закрытие попапа с помощью "Esc"
+function closePopupWithEscape(evt) {
+  const openedPopup = document.querySelector('.popup_opened');
 
-  //...очистка внешнего вида ошибки
-  popup.querySelectorAll('.popup__input').forEach((input) => {
-    input.classList.remove('popup__input_type_error');
-  });
+  if (evt.key === 'Escape') {
+    closePopup(openedPopup);
+  }
 }
 
 
@@ -115,21 +100,12 @@ function clearPopupForm(popup) {
 popups.forEach((popup) => {
   //...при нажатии кнопки "закрыть"
   const popupCloseButton = popup.querySelector('.popup__close');
-  popupCloseButton.addEventListener('click', function() {
-    closePopup(popup);
-  });
+  popupCloseButton.addEventListener('click', () => closePopup(popup));
   
   //...при клике на оверлей
-  popup.addEventListener('click', function(evt) {
+  popup.addEventListener('mousedown', (evt) => {
     const e = evt || window.event;
-    if (e.target === this) {
-      closePopup(popup);
-    }
-  });
-
-  //...при нажатии Esc
-  window.addEventListener('keydown', function(evt) {
-    if (evt.key === 'Escape') {
+    if (e.target === evt.currentTarget) {
       closePopup(popup);
     }
   });
@@ -138,15 +114,11 @@ popups.forEach((popup) => {
 
 // Открытие окна редактирования профиля пользователя
 function openEditProfilePopup() {
-  openPopup(editProfilePopup);
-  formUserName.focus();
-
   formUserName.value = userName.textContent;
   formUserJob.value = userJob.textContent;
 
-  if ((formUserName.value && formUserJob.value) !== '') {
-    editProfilePopup.querySelector('.popup__submit').removeAttribute('disabled', true);
-  }
+  openPopup(editProfilePopup);
+  formUserName.focus();
 }
 
 
@@ -168,7 +140,6 @@ function openAddPhotoPopup() {
 
 // Создание новой карточки
 const createNewCard = (photoTitleValue, photoLinkValue) => {
-  const cardTemplate = document.querySelector('#elementTemplate').content;
   const cardElement = cardTemplate.cloneNode(true);
   const cardElementBox = cardElement.querySelector('.element');
   const cardElementImage = cardElement.querySelector('.element__image');
