@@ -64,11 +64,8 @@ const config = {
 // Открытие модального окна
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  if (popup.classList.contains('popup_style_form')) {
-    enableValidation(config);
-  }
-
   document.body.style.overflowY = 'hidden';
+  
   window.addEventListener('keydown', closePopupWithEscape);
 }
 
@@ -200,4 +197,4 @@ initialCards.forEach((elem) => {
     elementContainer.prepend(createNewCard(elem.name, elem.link));
 });
 
-//enableValidation(config);
+enableValidation(config);
