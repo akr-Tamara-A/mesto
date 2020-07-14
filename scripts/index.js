@@ -75,10 +75,6 @@ function openPopup(popup) {
 
 // Закрытие модального окна
 function closePopup(popup) {
-  if (popup.classList.contains('popup_style_form')) {
-    clearPopupForm(popup, config);
-  }
-  
   popup.classList.remove('popup_opened');
   document.body.style.overflowY = '';
   
@@ -114,6 +110,8 @@ popups.forEach((popup) => {
 
 // Открытие окна редактирования профиля пользователя
 function openEditProfilePopup() {
+  clearPopupForm(editProfilePopup, config);
+
   formUserName.value = userName.textContent;
   formUserJob.value = userJob.textContent;
 
@@ -133,6 +131,7 @@ function addNewValueEditProfile() {
 
 // Открытие окна добавления фото
 function openAddPhotoPopup() {
+  clearPopupForm(addPhotoPopup, config);
   openPopup(addPhotoPopup);
   formPhotoTitle.focus();
 }
@@ -201,3 +200,4 @@ initialCards.forEach((elem) => {
     elementContainer.prepend(createNewCard(elem.name, elem.link));
 });
 
+//enableValidation(config);
