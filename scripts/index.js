@@ -27,6 +27,7 @@ const initialCards = [
 ];
 
 
+const page = document.querySelector('.page');
 const popups = document.querySelectorAll('.popup');
 
 const editProfilePopup = document.querySelector('#popupEditProfile');
@@ -60,12 +61,11 @@ const config = {
   errorClass: 'popup__input-error_visible'
 };
 
-
 // Открытие модального окна
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  document.body.style.overflowY = 'hidden';
-  
+  page.classList.add('page_overflow');
+
   window.addEventListener('keydown', closePopupWithEscape);
 }
 
@@ -73,7 +73,8 @@ function openPopup(popup) {
 // Закрытие модального окна
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  document.body.style.overflowY = '';
+  page.classList.remove('page_overflow');
+
   
   window.removeEventListener('keydown', closePopupWithEscape);
 }
