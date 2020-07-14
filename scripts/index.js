@@ -114,6 +114,7 @@ function openEditProfilePopup() {
   formUserJob.value = userJob.textContent;
 
   openPopup(editProfilePopup);
+  enableValidation(config);
   formUserName.focus();
 }
 
@@ -131,6 +132,7 @@ function addNewValueEditProfile() {
 function openAddPhotoPopup() {
   clearPopupForm(addPhotoPopup, config);
   openPopup(addPhotoPopup);
+  enableValidation(config);
   formPhotoTitle.focus();
 }
 
@@ -198,4 +200,3 @@ initialCards.forEach((elem) => {
     elementContainer.prepend(createNewCard(elem.name, elem.link));
 });
 
-enableValidation(config);
