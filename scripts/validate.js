@@ -1,3 +1,5 @@
+import {config} from './index.js';
+
 //Показываем сообщение об ошибке в поле
 const showInputError = (formElement, inputElement, errorMessage, config) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
@@ -61,7 +63,7 @@ const setEventListeners = (formElement, config) => {
 
 
 //Добавляем валидацию форме
-const enableValidation = (config) => {
+export const enableValidation = (config) => {
   const forms = document.querySelectorAll(config.formSelector);
   const formList = Array.from(forms);
   
@@ -76,7 +78,7 @@ const enableValidation = (config) => {
 
 
 //Очистка формы при закрытии попапа:
-function clearPopupForm(popup, config) {
+export function clearPopupForm(popup, config) {
   const formElement = popup.querySelector(config.formSelector);
   formElement.reset();
   const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
@@ -85,3 +87,5 @@ function clearPopupForm(popup, config) {
     hideInputError(formElement, inputElement, config);
   });
 }
+
+enableValidation(config);
