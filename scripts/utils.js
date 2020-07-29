@@ -22,6 +22,7 @@ export function openPopup(popup) {
   window.addEventListener('keydown', closePopupWithEscape);
 };
 
+
 // Закрытие модального окна
 export function closePopup(popup) {
   popup.classList.remove('popup_opened');
@@ -39,6 +40,7 @@ export function closePopupWithEscape(evt) {
     closePopup(openedPopup);
   }
 };
+
 
 //Открытие окна просмотра полноразмерного фото
 export function openViewPhotoPopup(photoLink, photoTitle) {
