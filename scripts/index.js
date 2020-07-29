@@ -87,27 +87,30 @@ addPhotoOpenButton.addEventListener('click', openAddPhotoPopup);
 
 
 // Добавление предустановленных карточек на страницу
-initialCards.forEach((elem) => {
-    const InitialCard = new Card(elem.link, elem.name, cardTemplateSelector);
-    const cardElement = InitialCard.generateCard();
+function renderCard(cards) {
+  cards.forEach((elem) => {
+    const initialCard = new Card(elem.link, elem.name, cardTemplateSelector);
+    const cardElement = initialCard.generateCard();
     elementContainer.prepend(cardElement);
   });
+};
 
+renderCard(initialCards);
 
 // Добавление карточки на страницу пользователем
 addPhotoPopup.querySelector('.popup__form').addEventListener('submit', function(evt) {
   evt.preventDefault();
-  const NewCard = new Card(formPhotoLink.value, formPhotoTitle.value, cardTemplateSelector);
-  const cardElement = NewCard.generateCard();
+  const newCard = new Card(formPhotoLink.value, formPhotoTitle.value, cardTemplateSelector);
+  const cardElement = newCard.generateCard();
   elementContainer.prepend(cardElement);
   closePopup(addPhotoPopup);
 });
 
 
-const FormValidationEditProfile = new FormValidator(config, editProfilePopup)
-FormValidationEditProfile.enableValidation();
+const formValidationEditProfile = new FormValidator(config, editProfilePopup)
+formValidationEditProfile.enableValidation();
 
-const FormValidationAddPhoto = new FormValidator(config, addPhotoPopup)
-FormValidationAddPhoto.enableValidation();
+const formValidationAddPhoto = new FormValidator(config, addPhotoPopup)
+formValidationAddPhoto.enableValidation();
 
 
