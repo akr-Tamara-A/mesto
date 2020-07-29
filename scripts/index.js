@@ -27,12 +27,16 @@ const elementContainer = document.querySelector('.elements__container');
 // Условия закрытия модального окна:
 popups.forEach((popup) => {
   const popupCloseButton = popup.querySelector('.popup__close');
-  const popupOverlay = popup;
 
   //...при нажатии кнопки "закрыть"
   popupCloseButton.addEventListener('click', () => closePopup(popup));
+  
   //...при клике на оверлей
-  popupOverlay.addEventListener('mousedown', () => closePopup(popup));
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.currentTarget === evt.target) {
+      closePopup(popup)
+    }
+  });
 });
 
 
