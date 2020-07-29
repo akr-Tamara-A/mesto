@@ -16,6 +16,15 @@ export function openPopup(popup) {
   window.addEventListener('keydown', closePopupWithEscape);
 }
 
+// Закрытие модального окна
+export function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+  page.classList.remove('page_overflow');
+  
+  window.removeEventListener('keydown', closePopupWithEscape);
+}
+
+
 
 //Закрытие попапа с помощью "Esc"
 export function closePopupWithEscape(evt) {
@@ -25,6 +34,16 @@ export function closePopupWithEscape(evt) {
     closePopup(openedPopup);
   }
 }
+
+//Открытие окна просмотра полноразмерного фото
+export function openViewPhotoPopup(photoLink, photoTitle) {
+  popupPhotoLink.src = photoLink;
+  popupPhotoTitle.alt = photoTitle;
+  popupPhotoTitle.textContent = photoTitle;
+
+  openPopup(viewPhotoPopup);
+}
+
 
 export const page = document.querySelector('.page');
 export const viewPhotoPopup = document.querySelector('#popupViewPhoto');

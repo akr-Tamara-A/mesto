@@ -1,18 +1,14 @@
 
 import { initialCards} from './initialCards.js'
 import { Card } from './Card.js';
-import { openPopup, closePopupWithEscape, page, config } from './utils.js';
+import { openPopup, closePopup, closePopupWithEscape, page, config } from './utils.js';
 import { FormValidator } from './FormValidator.js';
 
 
-
-//const page = document.querySelector('.page');
 const popups = document.querySelectorAll('.popup');
-const popupsForms = document.querySelectorAll('.popup__form');
 
 const editProfilePopup = document.querySelector('#popupEditProfile');
 const addPhotoPopup = document.querySelector('#popupAddPhoto');
-const viewPhotoPopup = document.querySelector('#popupViewPhoto');
 
 const editProfileOpenButton = document.querySelector('.button_type_edit-profile');
 const addPhotoOpenButton = document.querySelector('.button_type_add-photo');
@@ -29,28 +25,15 @@ const formPhotoLink = addPhotoPopup.querySelector('.popup__input_type_photo-link
 const elementContainer = document.querySelector('.elements__container');
 
 
-// Закрытие модального окна
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  page.classList.remove('page_overflow');
-  
-  window.removeEventListener('keydown', closePopupWithEscape);
-}
-
-
 // Условия закрытия модального окна:
 popups.forEach((popup) => {
-  //...при нажатии кнопки "закрыть"
   const popupCloseButton = popup.querySelector('.popup__close');
+  const popupOverlay = popup;
+
+  //...при нажатии кнопки "закрыть"
   popupCloseButton.addEventListener('click', () => closePopup(popup));
-  
   //...при клике на оверлей
-  popup.addEventListener('mousedown', (evt) => {
-    const e = evt || window.event;
-    if (e.target === evt.currentTarget) {
-      closePopup(popup);
-    }
-  });
+  popupOverlay.addEventListener('mousedown', () => closePopup(popup));
 });
 
 
@@ -116,7 +99,6 @@ addPhotoPopup.querySelector('.popup__form').addEventListener('submit', function(
   elementContainer.prepend(cardElement);
   closePopup(addPhotoPopup);
 });
-
 
 
 const FormValidationEditProfile = new FormValidator(config, editProfilePopup)

@@ -1,5 +1,5 @@
 
-import { openPopup, popupPhotoLink, popupPhotoTitle, cardTemplate } from './utils.js';
+import { cardTemplate, openViewPhotoPopup } from './utils.js';
 
 
 // Создание карточки
@@ -9,6 +9,7 @@ export class Card {
     this._title = title;
   }
 
+  // Получение шаблона карточки
   _getTemplate() {
     const cardElement = cardTemplate
       .querySelector('.element')
@@ -17,6 +18,7 @@ export class Card {
     return cardElement;
   }
 
+  // Создание карточки
   generateCard() {
     this._card = this._getTemplate();
     this._setEventListeners();
@@ -40,13 +42,10 @@ export class Card {
 
   // Открытие окна просмотра полноразмерного фото
   _handleOpenPopup() {
-    popupPhotoLink.src = this._image;
-    popupPhotoTitle.alt = this._title;
-    popupPhotoTitle.textContent = this._title;
-    
-    openPopup(document.querySelector('#popupViewPhoto'));
+    openViewPhotoPopup(this._image, this._title)
   }
 
+  // Установка слушателей карточки
   _setEventListeners() {    
     this._card.querySelector('.element__like').addEventListener('click', () => {
       this._handlePhotoLike();

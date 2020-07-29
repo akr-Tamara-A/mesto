@@ -13,6 +13,7 @@ import { config } from './utils.js';
     this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
   }
 
+  // Показать ошибку поля формы
   _showInputError(inputElement, errorMessage) {
     const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(this._inputErrorClass);
@@ -20,6 +21,7 @@ import { config } from './utils.js';
     errorElement.classList.add(this._errorClass);
   }
 
+  // Убрать ошибку поля формы
   _hideInputError(inputElement) {
     const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.remove(this._inputErrorClass);
@@ -27,12 +29,14 @@ import { config } from './utils.js';
     errorElement.textContent = '';
   }
 
+  // Проверка валидности формы
   _hasInvalidInput() {
     return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   }
 
+  // Переключение состояния кнопки отправки формы
   _toggleButtonState() {
     if (this._hasInvalidInput()) {
       this._submitButton.setAttribute('disabled', true);
@@ -41,6 +45,7 @@ import { config } from './utils.js';
     }
   }
 
+  // Проверка валидности поля формы
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement, inputElement.validationMessage);
@@ -49,8 +54,8 @@ import { config } from './utils.js';
     } 
   }
 
+  // Установка слушателей ввода данных полям формы
   _setEventListeners() {
-  
     this._toggleButtonState();
     
     this._inputList.forEach((inputElement) => {
@@ -61,6 +66,7 @@ import { config } from './utils.js';
     });
   }
   
+  // Функция проверки валидности формы
   enableValidation() {
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
@@ -69,6 +75,7 @@ import { config } from './utils.js';
     this._setEventListeners();
   }
 
+  // Функция сброса ошибок формы при открытии попапа
   resetForm() {
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
