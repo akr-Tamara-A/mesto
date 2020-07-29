@@ -1,4 +1,10 @@
 
+export const page = document.querySelector('.page');
+export const viewPhotoPopup = document.querySelector('#popupViewPhoto');
+export const popupPhotoLink = viewPhotoPopup.querySelector('.popup__photo');
+export const popupPhotoTitle = viewPhotoPopup.querySelector('.popup__photo-title');
+export const cardTemplate = document.querySelector('#elementTemplate').content;
+
 export const config = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -14,7 +20,7 @@ export function openPopup(popup) {
   page.classList.add('page_overflow');
 
   window.addEventListener('keydown', closePopupWithEscape);
-}
+};
 
 // Закрытие модального окна
 export function closePopup(popup) {
@@ -22,8 +28,7 @@ export function closePopup(popup) {
   page.classList.remove('page_overflow');
   
   window.removeEventListener('keydown', closePopupWithEscape);
-}
-
+};
 
 
 //Закрытие попапа с помощью "Esc"
@@ -33,7 +38,7 @@ export function closePopupWithEscape(evt) {
   if (evt.key === 'Escape') {
     closePopup(openedPopup);
   }
-}
+};
 
 //Открытие окна просмотра полноразмерного фото
 export function openViewPhotoPopup(photoLink, photoTitle) {
@@ -42,11 +47,4 @@ export function openViewPhotoPopup(photoLink, photoTitle) {
   popupPhotoTitle.textContent = photoTitle;
 
   openPopup(viewPhotoPopup);
-}
-
-
-export const page = document.querySelector('.page');
-export const viewPhotoPopup = document.querySelector('#popupViewPhoto');
-export const popupPhotoLink = viewPhotoPopup.querySelector('.popup__photo');
-export const popupPhotoTitle = viewPhotoPopup.querySelector('.popup__photo-title');
-export const cardTemplate = document.querySelector('#elementTemplate').content;
+};
