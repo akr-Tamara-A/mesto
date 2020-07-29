@@ -39,6 +39,7 @@ export class Card {
   // Удаление карточки
   _handleCardDelete() {
    this._card.remove();
+   this._card = null;
  }
 
   // Открытие окна просмотра полноразмерного фото
