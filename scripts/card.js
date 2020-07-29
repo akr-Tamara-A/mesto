@@ -1,5 +1,5 @@
 
-import { openPopup } from './index.js';
+import { openPopup, popupPhotoLink, popupPhotoTitle, cardTemplate } from './utils.js';
 
 
 // Создание карточки
@@ -10,9 +10,7 @@ export class Card {
   }
 
   _getTemplate() {
-    const cardElement = document
-      .querySelector('#elementTemplate')
-      .content
+    const cardElement = cardTemplate
       .querySelector('.element')
       .cloneNode(true);
 
@@ -42,12 +40,11 @@ export class Card {
 
   // Открытие окна просмотра полноразмерного фото
   _handleOpenPopup() {
+    popupPhotoLink.src = this._image;
+    popupPhotoTitle.alt = this._title;
+    popupPhotoTitle.textContent = this._title;
     
-     document.querySelector('#popupViewPhoto').querySelector('.popup__photo').src = this._image;
-     document.querySelector('#popupViewPhoto').querySelector('.popup__photo').alt = this._title;
-     document.querySelector('#popupViewPhoto').querySelector('.popup__photo-title').textContent = this._title;
-    
-     openPopup(document.querySelector('#popupViewPhoto'));
+    openPopup(document.querySelector('#popupViewPhoto'));
   }
 
   _setEventListeners() {    

@@ -1,9 +1,14 @@
-import { clearPopupForm } from './validate.js';
-import { Card } from './card.js';
-import { initialCards } from './utils.js'
 
-const page = document.querySelector('.page');
+import { initialCards} from './initialCards.js'
+import { Card } from './Card.js';
+import { openPopup, closePopupWithEscape, page, config } from './utils.js';
+import { FormValidator } from './FormValidator.js';
+
+
+
+//const page = document.querySelector('.page');
 const popups = document.querySelectorAll('.popup');
+const popupsForms = document.querySelectorAll('.popup__form');
 
 const editProfilePopup = document.querySelector('#popupEditProfile');
 const addPhotoPopup = document.querySelector('#popupAddPhoto');
@@ -21,47 +26,15 @@ const formUserJob = editProfilePopup.querySelector('.popup__input_type_about');
 const formPhotoTitle = addPhotoPopup.querySelector('.popup__input_type_photo-title');
 const formPhotoLink = addPhotoPopup.querySelector('.popup__input_type_photo-link');
 
-const popupPhotoLink = viewPhotoPopup.querySelector('.popup__photo');
-const popupPhotoTitle = viewPhotoPopup.querySelector('.popup__photo-title');
-
 const elementContainer = document.querySelector('.elements__container');
-
-const cardTemplate = document.querySelector('#elementTemplate').content;
-
-export const config = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error_visible'
-};
-
-// Открытие модального окна
-export function openPopup(popup) {
-  popup.classList.add('popup_opened');
-  page.classList.add('page_overflow');
-
-  window.addEventListener('keydown', closePopupWithEscape);
-}
 
 
 // Закрытие модального окна
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   page.classList.remove('page_overflow');
-
   
   window.removeEventListener('keydown', closePopupWithEscape);
-}
-
-
-//Закрытие попапа с помощью "Esc"
-function closePopupWithEscape(evt) {
-  const openedPopup = document.querySelector('.popup_opened');
-  
-  if (evt.key === 'Escape') {
-    closePopup(openedPopup);
-  }
 }
 
 
@@ -83,18 +56,12 @@ popups.forEach((popup) => {
 
 // Открытие окна редактирования профиля пользователя
 function openEditProfilePopup() {
-  const submitButton = editProfilePopup.querySelector('.popup__submit');
-
-  clearPopupForm(editProfilePopup, config);
-
   formUserName.value = userName.textContent;
   formUserJob.value = userJob.textContent;
 
+  FormValidationEditProfile.resetForm();
+
   openPopup(editProfilePopup);
-
-  submitButton.removeAttribute('disabled', true);
-
-  formUserName.focus();
 }
 
 
@@ -109,15 +76,12 @@ function addNewValueEditProfile() {
 
 // Открытие окна добавления фото
 function openAddPhotoPopup() {
-  const submitButton = addPhotoPopup.querySelector('.popup__submit');
+  formPhotoTitle.value = '';
+  formPhotoLink.value = '';
 
-  clearPopupForm(addPhotoPopup, config);
+  FormValidationAddPhoto.resetForm();
 
   openPopup(addPhotoPopup);
-
-  submitButton.setAttribute('disabled', true);
-
-  formPhotoTitle.focus();
 }
 
 
@@ -139,17 +103,26 @@ addPhotoOpenButton.addEventListener('click', openAddPhotoPopup);
 
 // Добавление предустановленных карточек на страницу
 initialCards.forEach((elem) => {
-  const card = new Card(elem.link, elem.name);
-  const cardElement = card.generateCard();
+  const InitialCard = new Card(elem.link, elem.name);
+  const cardElement = InitialCard.generateCard();
   elementContainer.prepend(cardElement);
 });
 
-
-/* 
 // Добавление карточки на страницу пользователем
 addPhotoPopup.querySelector('.popup__form').addEventListener('submit', function(evt) {
   evt.preventDefault();
-  elementContainer.prepend(createNewCard(formPhotoTitle.value, formPhotoLink.value));
+  const NewCard = new Card(formPhotoLink.value, formPhotoTitle.value);
+  const cardElement = NewCard.generateCard();
+  elementContainer.prepend(cardElement);
   closePopup(addPhotoPopup);
 });
-*/
+
+
+
+const FormValidationEditProfile = new FormValidator(config, editProfilePopup)
+FormValidationEditProfile.enableValidation();
+
+const FormValidationAddPhoto = new FormValidator(config, addPhotoPopup)
+FormValidationAddPhoto.enableValidation();
+
+
