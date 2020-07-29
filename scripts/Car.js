@@ -1,4 +1,3 @@
-
 import { cardTemplate, openViewPhotoPopup } from './utils.js';
 
 
