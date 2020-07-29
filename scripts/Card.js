@@ -1,17 +1,19 @@
-import { cardTemplate, openViewPhotoPopup } from './utils.js';
+import { openViewPhotoPopup } from './utils.js';
 
 
 // Создание карточки
 export class Card {
-  constructor(image, title) {
+  constructor(image, title, cardTemplateSelector) {
     this._image = image;
     this._title = title;
+    this._cardTemplateSelector = cardTemplateSelector;
   }
 
   // Получение шаблона карточки
   _getTemplate() {
-    const cardElement = cardTemplate
-      .querySelector('.element')
+    const cardElement = document
+      .querySelector(this._cardTemplateSelector)
+      .content.querySelector('.element')
       .cloneNode(true);
 
     return cardElement;
@@ -37,7 +39,7 @@ export class Card {
   // Удаление карточки
   _handleCardDelete() {
    this._card.remove();
-  }
+ }
 
   // Открытие окна просмотра полноразмерного фото
   _handleOpenPopup() {

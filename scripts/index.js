@@ -1,6 +1,5 @@
-import { initialCards} from './initialCards.js'
 import { Card } from './Card.js';
-import { openPopup, closePopup, closePopupWithEscape, page, config } from './utils.js';
+import { openPopup, closePopup, closePopupWithEscape, page, config, initialCards } from './utils.js';
 import { FormValidator } from './FormValidator.js';
 
 
@@ -22,6 +21,8 @@ const formPhotoTitle = addPhotoPopup.querySelector('.popup__input_type_photo-tit
 const formPhotoLink = addPhotoPopup.querySelector('.popup__input_type_photo-link');
 
 const elementContainer = document.querySelector('.elements__container');
+
+const cardTemplateSelector = '#elementTemplate';
 
 
 // Условия закрытия модального окна:
@@ -45,7 +46,7 @@ function openEditProfilePopup() {
   formUserName.value = userName.textContent;
   formUserJob.value = userJob.textContent;
 
-  FormValidationEditProfile.resetForm();
+  formValidationEditProfile.resetForm();
 
   openPopup(editProfilePopup);
 }
@@ -55,8 +56,6 @@ function openEditProfilePopup() {
 function addNewValueEditProfile() {
   userName.textContent = formUserName.value;
   userJob.textContent = formUserJob.value;
-
-  closePopup(editProfilePopup);
 }
 
 
@@ -65,7 +64,7 @@ function openAddPhotoPopup() {
   formPhotoTitle.value = '';
   formPhotoLink.value = '';
 
-  FormValidationAddPhoto.resetForm();
+  formValidationAddPhoto.resetForm();
 
   openPopup(addPhotoPopup);
 }
@@ -89,15 +88,16 @@ addPhotoOpenButton.addEventListener('click', openAddPhotoPopup);
 
 // Добавление предустановленных карточек на страницу
 initialCards.forEach((elem) => {
-  const InitialCard = new Card(elem.link, elem.name);
-  const cardElement = InitialCard.generateCard();
-  elementContainer.prepend(cardElement);
-});
+    const InitialCard = new Card(elem.link, elem.name, cardTemplateSelector);
+    const cardElement = InitialCard.generateCard();
+    elementContainer.prepend(cardElement);
+  });
+
 
 // Добавление карточки на страницу пользователем
 addPhotoPopup.querySelector('.popup__form').addEventListener('submit', function(evt) {
   evt.preventDefault();
-  const NewCard = new Card(formPhotoLink.value, formPhotoTitle.value);
+  const NewCard = new Card(formPhotoLink.value, formPhotoTitle.value, cardTemplateSelector);
   const cardElement = NewCard.generateCard();
   elementContainer.prepend(cardElement);
   closePopup(addPhotoPopup);
