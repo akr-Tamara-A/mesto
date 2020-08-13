@@ -1,11 +1,10 @@
-import { openViewPhotoPopup } from './utils.js';
-
 
 // Создание карточки
-export class Card {
-  constructor(image, title, cardTemplateSelector) {
+export default class Card {
+  constructor(image, title, {handleCardClick}, cardTemplateSelector) {
     this._image = image;
     this._title = title;
+    this.handleCardClick = handleCardClick;
     this._cardTemplateSelector = cardTemplateSelector;
   }
 
@@ -38,13 +37,13 @@ export class Card {
 
   // Удаление карточки
   _handleCardDelete() {
-   this._card.remove();
-   this._card = null;
- }
+    this._card.remove();
+    this._card = null;
+  }
 
   // Открытие окна просмотра полноразмерного фото
   _handleOpenPopup() {
-    openViewPhotoPopup(this._image, this._title)
+    this.handleCardClick(this._image, this._title);
   }
 
   // Установка слушателей карточки

@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="./pages/index.css">
+  <!-- <link rel="stylesheet" href="./pages/index.css">  -->
   <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon/favicon-16x16.png">
@@ -27,7 +27,7 @@
     </header>
 
     <main class="content page__content">
-                                                     <!-- Profile -->
+                                                      <!-- Profile -->
       <div class="profile page__section">
         <div class="profile__container">
           <img src="./images/userpic.jpg" alt="Аватар автора" class="profile__userpic">
@@ -47,7 +47,7 @@
                   class="button button_type_add-photo button_style_primary"></button>
         </div>
       </div>
-                                               <!-- Elements container -->
+                                                <!-- Elements container -->
       <div class="elements page__section">
         <ul class="elements__container">
           
@@ -60,14 +60,14 @@
     <footer class="footer page__footer page__section">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-                                               <!-- Template of element card -->
+                                                <!-- Template of element card -->
     <template id="elementTemplate">
       <li class="elements__item element">
         <figure class="element__wrapper">
           <div class="element__head">
             <img src="#" 
-                 alt="Описание фотографии" 
-                 class="element__image">
+                alt="Описание фотографии" 
+                class="element__image">
           </div>
           <figcaption class="element__figcaption">
             <h3 class="element__title"></h3>
@@ -163,7 +163,7 @@
           <label class="popup__form-field">
             <input 
                   id="input-photoLink"
-                  name="addPhotoPhotoLink" 
+                  name="addPhotoLink" 
                   type="url" 
                   placeholder="Ссылка на картинку" 
                   required
@@ -194,6 +194,5 @@
       </div>
     </div>
   </div>  
-  <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>
