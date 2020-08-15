@@ -12,7 +12,7 @@ export default class FormValidator {
     this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
   }
 
-  // Показать ошибку поля формы
+  /** Показать ошибку поля формы */
   _showInputError(inputElement, errorMessage) {
     const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(this._inputErrorClass);
@@ -20,7 +20,7 @@ export default class FormValidator {
     errorElement.classList.add(this._errorClass);
   }
 
-  // Убрать ошибку поля формы
+  /** Убрать ошибку поля формы */
   _hideInputError(inputElement) {
     const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.remove(this._inputErrorClass);
@@ -28,14 +28,14 @@ export default class FormValidator {
     errorElement.textContent = '';
   }
 
-  // Проверка валидности формы
+  /** Проверка валидности формы */
   _hasInvalidInput() {
     return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   }
 
-  // Переключение состояния кнопки отправки формы
+  /** Переключение состояния кнопки отправки формы */
   _toggleButtonState() {
     if (this._hasInvalidInput()) {
       this._submitButton.setAttribute('disabled', true);
@@ -44,7 +44,7 @@ export default class FormValidator {
     }
   }
 
-  // Проверка валидности поля формы
+  /** Проверка валидности поля формы */
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement, inputElement.validationMessage);
@@ -53,7 +53,7 @@ export default class FormValidator {
     } 
   }
 
-  // Установка слушателей ввода данных полям формы
+  /** Установка слушателей ввода данных полям формы */
   _setEventListeners() {
     this._toggleButtonState();
     
@@ -65,7 +65,7 @@ export default class FormValidator {
     });
   }
   
-  // Функция проверки валидности формы
+  /** Метод проверки валидности формы */
   enableValidation() {
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
@@ -74,7 +74,7 @@ export default class FormValidator {
     this._setEventListeners();
   }
 
-  // Функция сброса ошибок формы при открытии попапа
+  /** Метод сброса ошибок формы при открытии попапа */
   resetForm() {
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);

@@ -9,6 +9,7 @@ export default class PopupWithImage extends Popup {
     this._photoTitle = this._popup.querySelector(this._photoTitleSelector);
   }
 
+  /** Метод открытия попапа с полноразмерным фото */
   openPopup(photoLink, photoTitle) {
     super.openPopup();
     this._photoLink.src = photoLink;

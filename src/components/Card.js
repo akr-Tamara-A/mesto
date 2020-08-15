@@ -1,5 +1,4 @@
 
-// Создание карточки
 export default class Card {
   constructor(image, title, {handleCardClick}, cardTemplateSelector) {
     this._image = image;
@@ -8,7 +7,7 @@ export default class Card {
     this._cardTemplateSelector = cardTemplateSelector;
   }
 
-  // Получение шаблона карточки
+  /** Получение шаблона карточки */
   _getTemplate() {
     const cardElement = document
       .querySelector(this._cardTemplateSelector)
@@ -18,7 +17,7 @@ export default class Card {
     return cardElement;
   }
 
-  // Создание карточки
+  /** Создание карточки */
   generateCard() {
     this._card = this._getTemplate();
     this._setEventListeners();
@@ -32,23 +31,23 @@ export default class Card {
     return this._card;
   }
 
-   // Обработка кнопки like 
+  /**Обработка кнопки like */
   _handlePhotoLike() {
     this._card.querySelector('.element__like').classList.toggle('button_type_like');
   }
 
-  // Удаление карточки
+  /** Удаление карточки */
   _handleCardDelete() {
     this._card.remove();
     this._card = null;
   }
 
-  // Открытие окна просмотра полноразмерного фото
+  /** Открытие окна просмотра полноразмерного фото */
   _handleOpenPopup() {
     this.handleCardClick(this._image, this._title);
   }
 
-  // Установка слушателей карточки
+  /**Установка слушателей карточки */
   _setEventListeners() {    
     this._card.querySelector('.element__like').addEventListener('click', () => {
       this._handlePhotoLike();

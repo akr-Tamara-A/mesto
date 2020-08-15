@@ -7,6 +7,7 @@ export default class UserInfo {
     this._userJob = document.querySelector(this._userJobSelector);
   }
 
+  /** Получение данных пользователя */
   getUserInfo() {
     return {
       userName: this._userName.textContent, 
@@ -14,6 +15,7 @@ export default class UserInfo {
     };
   }
   
+  /** Добавление данных пользователя на страницу */
   setUserInfo({userName, userJob}) {
     this._userName.textContent = userName;
     this._userJob.textContent = userJob;

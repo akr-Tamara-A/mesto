@@ -7,6 +7,7 @@ export default class PopupWithForm extends Popup {
     this._form = this._popup.querySelector('.popup__form');
   }
   
+  /** Получение значений инпутов формы */
   _getInputValues() {
     this._inputList = this._form.querySelectorAll('.popup__input');
     this._formValues = {};
@@ -17,6 +18,7 @@ export default class PopupWithForm extends Popup {
     return this._formValues;
   }
 
+  /** Навешивание слушателя отправления формы */
   setEventListeners() {
     super.setEventListeners();
 
@@ -27,11 +29,13 @@ export default class PopupWithForm extends Popup {
     });
   }
 
+  /** Перезаписывание родительского метода закрытия попапа */
   closePopup() {
     super.closePopup();
     this._form.reset();
   }
 
+  /** Установка изначальных значений инпутов формы */
   setInitialInputValues(initialData, selectors) {
     this._form.querySelector(selectors.userName).value = initialData.userName;
     this._form.querySelector(selectors.userJob).value = initialData.userJob;

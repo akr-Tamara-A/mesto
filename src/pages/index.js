@@ -1,6 +1,7 @@
+/** Импорт файла стилей */
 import './index.css';
 
-
+/** Импорт констант */
 import FormValidator from '../components/FormValidator.js';
 import Section from '../components/Section.js';
 import Card from '../components/Card.js';
@@ -28,26 +29,26 @@ import {
   } from '../utils/constants.js';
 
 
-// Валидация формы редактирования профиля
+/** Валидация формы редактирования профиля */
 const formValidationEditProfile = new FormValidator(config, editProfilePopupSelector)
 formValidationEditProfile.enableValidation();
 
 
-// Валидация формы добавления новой карточки
+/** Валидация формы добавления новой карточки */
 const formValidationAddPhoto = new FormValidator(config, addPhotoPopupSelector)
 formValidationAddPhoto.enableValidation();
 
 
-// Инициализация обработчика профиля 
+/** Инициализация обработчика профиля  */
 const profileInfo = new UserInfo(userInfoSelectors);
 
 
-// Инициализация попапа просмотра полноразмерного фото
+/** Инициализация попапа просмотра полноразмерного фото */
 const popupViewPhoto = new PopupWithImage(viewPhotoPopupSelector, popupViewSelectors);
 popupViewPhoto.setEventListeners();
 
 
-// Инициализация попапа редактирования профиля
+/** Инициализация попапа редактирования профиля */
 const popupEditProfile = new PopupWithForm({
   handleFormSubmit: (formData) => {
     const userName = formData.editProfileUserName;
@@ -60,7 +61,7 @@ const popupEditProfile = new PopupWithForm({
 popupEditProfile.setEventListeners();
 
 
-// Инициализация попапа добавления новой карточки
+/** Инициализация попапа добавления новой карточки */
 const popupAddCard = new PopupWithForm({
   handleFormSubmit: (formData) => {
     const initialNewCard = new Card(
@@ -79,7 +80,7 @@ const popupAddCard = new PopupWithForm({
 popupAddCard.setEventListeners();
 
 
-// Открытие окна редактирования профиля пользователя
+/** Открытие окна редактирования профиля пользователя */
 editProfileOpenButton.addEventListener('click', () => {
   popupEditProfile.setInitialInputValues(profileInfo.getUserInfo(), popupProfileSelectors);
   formValidationEditProfile.resetForm();
@@ -87,14 +88,14 @@ editProfileOpenButton.addEventListener('click', () => {
 });
 
 
-// Открытие окна добавления фото
+/** Открытие окна добавления фото */
 addPhotoOpenButton.addEventListener('click', () => {
   formValidationAddPhoto.resetForm();
   popupAddCard.openPopup();
 });
 
 
-// Добавление предустановленных карточек на страницу
+/** Добавление предустановленных карточек на страницу */
 const cardList = new Section({
   data: initialCards,
   renderer: (elem) => {
