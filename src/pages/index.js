@@ -23,7 +23,8 @@ import {
   addPhotoPopupSelector,
 
   userInfoSelectors,
-  popupViewSelectors
+  popupViewSelectors,
+  popupProfileSelectors
   } from '../utils/constants.js';
 
 
@@ -49,7 +50,10 @@ popupViewPhoto.setEventListeners();
 // Инициализация попапа редактирования профиля
 const popupEditProfile = new PopupWithForm({
   handleFormSubmit: (formData) => {
-    profileInfo.setUserInfo(formData);
+    const userName = formData.editProfileUserName;
+    const userJob = formData.editProfileUserJob;
+    
+    profileInfo.setUserInfo({userName, userJob});
   }
 }, editProfilePopupSelector);
 
@@ -77,7 +81,7 @@ popupAddCard.setEventListeners();
 
 // Открытие окна редактирования профиля пользователя
 editProfileOpenButton.addEventListener('click', () => {
-  popupEditProfile.setInitialInputValues(profileInfo.getUserInfo());
+  popupEditProfile.setInitialInputValues(profileInfo.getUserInfo(), popupProfileSelectors);
   formValidationEditProfile.resetForm();
   popupEditProfile.openPopup();
 });

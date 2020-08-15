@@ -1,6 +1,4 @@
 
-export const page = document.querySelector('.page');
-
 export const viewPhotoPopupSelector = '#popupViewPhoto';
 export const editProfilePopupSelector = '#popupEditProfile';
 export const addPhotoPopupSelector = '#popupAddPhoto';

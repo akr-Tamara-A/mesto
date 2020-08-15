@@ -22,10 +22,12 @@ export default class Card {
   generateCard() {
     this._card = this._getTemplate();
     this._setEventListeners();
+    this._elementImage = this._card.querySelector('.element__image');
+    this._elementTitle = this._card.querySelector('.element__title');
 
-    this._card.querySelector('.element__image').src = this._image;
-    this._card.querySelector('.element__image').alt = this._title;
-    this._card.querySelector('.element__title').textContent = this._title;
+    this._elementImage.src = this._image;
+    this._elementImage.alt = this._title;
+    this._elementTitle.textContent = this._title;
 
     return this._card;
   }

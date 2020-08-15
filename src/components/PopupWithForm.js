@@ -1,5 +1,4 @@
 import Popup from './Popup.js';
-import { popupProfileSelectors } from '../utils/constants.js'
 
 export default class PopupWithForm extends Popup {
   constructor({handleFormSubmit}, popupSelector) {
@@ -33,9 +32,9 @@ export default class PopupWithForm extends Popup {
     this._form.reset();
   }
 
-  setInitialInputValues(initialData) {
-    this._form.querySelector(popupProfileSelectors.userName).value = initialData.userName;
-    this._form.querySelector(popupProfileSelectors.userJob).value = initialData.userJob;
+  setInitialInputValues(initialData, selectors) {
+    this._form.querySelector(selectors.userName).value = initialData.userName;
+    this._form.querySelector(selectors.userJob).value = initialData.userJob;
     
   }
 }

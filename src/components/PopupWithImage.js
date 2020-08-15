@@ -5,12 +5,14 @@ export default class PopupWithImage extends Popup {
     super(popupSelector);
     this._photoLinkSelector = data.photoLink;
     this._photoTitleSelector = data.photoTitle;
+    this._photoLink = this._popup.querySelector(this._photoLinkSelector);
+    this._photoTitle = this._popup.querySelector(this._photoTitleSelector);
   }
 
   openPopup(photoLink, photoTitle) {
     super.openPopup();
-    this._popup.querySelector(this._photoLinkSelector).src = photoLink;
-    this._popup.querySelector(this._photoLinkSelector).alt = photoTitle;
-    this._popup.querySelector(this._photoTitleSelector).textContent = photoTitle;
+    this._photoLink.src = photoLink;
+    this._photoLink.alt = photoTitle;
+    this._photoTitle.textContent = photoTitle;
   }
 }
