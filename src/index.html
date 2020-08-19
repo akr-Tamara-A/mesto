@@ -227,7 +227,30 @@
         </div>
       </div>
     </div>
-
+                                                      <!-- Popup 'Delete card' -->
+    <div id="popupDeleteCard" class="popup popup_style_form">
+      <div class="popup__container">
+        <button 
+              name="deleteCardClose" 
+              type="button" 
+              title="Закрыть окно" 
+              class="popup__close">
+        </button>
+        <form 
+              action="#"
+              method="POST"
+              name="deleteCard" 
+              novalidate
+              class="popup__form">
+          <h2 class="popup__title">Вы уверены?</h2>
+          <input 
+                name="deleteCardSubmit" 
+                type="submit" 
+                value="Да" 
+                class="popup__submit">
+        </form>
+      </div>
+    </div>
   </div>  
 </body>
 </html>
