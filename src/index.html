@@ -30,7 +30,10 @@
                                                       <!-- Profile -->
       <div class="profile page__section">
         <div class="profile__container">
-          <img src="./images/userpic.jpg" alt="Аватар автора" class="profile__userpic">
+          <div class="profile__userpic">
+            <div class="profile__edit" tabindex="0"></div>
+            <img src="./images/userpic.jpg" alt="Аватар автора" class="profile__image">
+          </div>
           <div class="profile__user">
             <h2 class="profile__user-name">Жак-Ив Кусто</h2>
             <p class="profile__user-job">Исследователь океана</p>
@@ -67,6 +70,7 @@
           <div class="element__head">
             <img src="#" 
                 alt="Описание фотографии" 
+                tabindex="0"
                 class="element__image">
           </div>
           <figcaption class="element__figcaption">

@@ -1,8 +1,10 @@
 .profile__userpic {
+  position: relative;
   grid-area: userpic;
   width: 120px;
   height: 120px;
   border-radius: 50%;
+  overflow: hidden;
   background-image: -webkit-gradient(linear, left bottom, left top, from(#cfd9df), to(#e2ebf0));
   background-image: -o-linear-gradient(bottom, #cfd9df 0%, #e2ebf0 100%);
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
@@ -11,7 +13,7 @@
 
 @media screen and (max-width: 680px) {
   .profile__userpic {
-     -ms-grid-column-align: center;
-         justify-self: center;
+    -ms-grid-column-align: center;
+      justify-self: center;
   }
 }

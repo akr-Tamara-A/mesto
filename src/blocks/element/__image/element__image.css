@@ -23,3 +23,9 @@
       -ms-transform: translate(-50%, -50%) scale(.8, .8);
           transform: translate(-50%, -50%) scale(.8, .8);
 }
+
+.element__image:focus {
+  -webkit-transform: translate(-50%, -50%) scale(.8, .8);
+      -ms-transform: translate(-50%, -50%) scale(.8, .8);
+          transform: translate(-50%, -50%) scale(.8, .8);
+}
