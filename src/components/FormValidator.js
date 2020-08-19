@@ -12,7 +12,9 @@ export default class FormValidator {
     this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
   }
 
-  /** Показать ошибку поля формы */
+  /** 
+   * Показать ошибку поля формы
+   * @method */
   _showInputError(inputElement, errorMessage) {
     const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(this._inputErrorClass);
@@ -20,7 +22,9 @@ export default class FormValidator {
     errorElement.classList.add(this._errorClass);
   }
 
-  /** Убрать ошибку поля формы */
+  /** 
+   * Убрать ошибку поля формы
+   * @method */
   _hideInputError(inputElement) {
     const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.remove(this._inputErrorClass);

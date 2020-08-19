@@ -6,12 +6,18 @@ export default class Section {
     this._container = document.querySelector(containerSelector);
   }
 
-  /** Метод очистки секции */
+  /** 
+   * Метод очистки секции
+   * @method 
+   */
   clear() {
     this._container.innerHTML = '';
   }
 
-  /** Метод отрисовки элементов */
+  /** 
+   * Метод отрисовки элементов
+   * @method 
+   */
   renderItems() {
     this.clear();
 
@@ -20,7 +26,10 @@ export default class Section {
     });
   }
 
-  /** Добавление элемента в контейнер */
+  /** 
+   * Добавление элемента в контейнер
+   * @method 
+   */
   setItem(cardElement) {
     this._container.prepend(cardElement);
   }

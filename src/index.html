@@ -132,6 +132,40 @@
         </form>
       </div>
     </div>
+                                                  <!-- Popup 'Edit avatar' -->
+    <div id="popupEditAvatar" class="popup popup_style_form">
+      <div class="popup__container">
+        <button 
+              name="editAvatarClose" 
+              type="button" 
+              title="Закрыть окно" 
+              class="popup__close">
+        </button>
+        <form 
+              action="#"
+              method="POST"
+              name="editAvatar" 
+              novalidate
+              class="popup__form">
+          <h2 class="popup__title">Обновить аватар</h2>
+          <label class="popup__form-field">
+            <input 
+                  id="input-avatar"
+                  name="editAvatarUserAvatar" 
+                  type="url" 
+                  required
+                  placeholder="Ссылка на новый аватар" 
+                  class="popup__input popup__input_type_avatar">
+            <span id="input-avatar-error" class="popup__input-error"></span>
+          </label>
+          <input 
+                name="editAvatarSubmit" 
+                type="submit" 
+                value="Сохранить" 
+                class="popup__submit">
+        </form>
+      </div>
+    </div>
                                               <!-- Popup 'Add Photo' -->
     <div id="popupAddPhoto" class="popup popup_style_form">
       <div class="popup__container">
@@ -193,6 +227,7 @@
         </div>
       </div>
     </div>
+
   </div>  
 </body>
 </html>
