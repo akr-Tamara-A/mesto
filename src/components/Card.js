@@ -33,7 +33,7 @@ export default class Card {
 
   /**Обработка кнопки like */
   _handlePhotoLike() {
-    this._card.querySelector('.element__like').classList.toggle('button_type_like');
+    this._card.querySelector('.element__like-button').classList.toggle('button_type_like');
   }
 
   /** Удаление карточки */
@@ -49,7 +49,7 @@ export default class Card {
 
   /**Установка слушателей карточки */
   _setEventListeners() {    
-    this._card.querySelector('.element__like').addEventListener('click', () => {
+    this._card.querySelector('.element__like-button').addEventListener('click', () => {
       this._handlePhotoLike();
     });
 
