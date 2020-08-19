@@ -17,25 +17,29 @@ import {
   cardTemplateSelector,
 
   editProfileOpenButton,
+  editAvatarOpenButton,
   addPhotoOpenButton,
   
-  viewPhotoPopupSelector,
-  editProfilePopupSelector,
-  addPhotoPopupSelector,
+  popupSelectors,
 
   userInfoSelectors,
   popupViewSelectors,
-  popupProfileSelectors
+  popupProfileSelectors,
+  popupAvatarSelectors
   } from '../utils/constants.js';
 
 
 /** Валидация формы редактирования профиля */
-const formValidationEditProfile = new FormValidator(config, editProfilePopupSelector)
+const formValidationEditProfile = new FormValidator(config, popupSelectors.editProfile)
 formValidationEditProfile.enableValidation();
+
+/** Валидация формы редактирования аватара */
+const formValidationEditAvatar = new FormValidator(config, popupSelectors.editAvatar)
+formValidationEditAvatar.enableValidation();
 
 
 /** Валидация формы добавления новой карточки */
-const formValidationAddPhoto = new FormValidator(config, addPhotoPopupSelector)
+const formValidationAddPhoto = new FormValidator(config, popupSelectors.addPhoto)
 formValidationAddPhoto.enableValidation();
 
 
@@ -44,7 +48,7 @@ const profileInfo = new UserInfo(userInfoSelectors);
 
 
 /** Инициализация попапа просмотра полноразмерного фото */
-const popupViewPhoto = new PopupWithImage(viewPhotoPopupSelector, popupViewSelectors);
+const popupViewPhoto = new PopupWithImage(popupSelectors.viewPhoto, popupViewSelectors);
 popupViewPhoto.setEventListeners();
 
 
@@ -56,9 +60,21 @@ const popupEditProfile = new PopupWithForm({
     
     profileInfo.setUserInfo({userName, userJob});
   }
-}, editProfilePopupSelector);
+}, popupSelectors.editProfile);
 
 popupEditProfile.setEventListeners();
+
+
+/** Инициализация попапа редактирования аватара */
+const popupEditAvatar = new PopupWithForm({
+  handleFormSubmit: (formData) => {
+    const userAvatar = formData.editUserAvatar;
+    console.log(formData)
+    profileInfo.setUserAvatar({userAvatar});
+  }
+}, popupSelectors.editAvatar);
+
+popupEditAvatar.setEventListeners();
 
 
 /** Инициализация попапа добавления новой карточки */
@@ -75,7 +91,7 @@ const popupAddCard = new PopupWithForm({
     cardList.setItem(cardElement); 
   }
 },
-  addPhotoPopupSelector);
+popupSelectors.addPhoto);
 
 popupAddCard.setEventListeners();
 
@@ -85,6 +101,12 @@ editProfileOpenButton.addEventListener('click', () => {
   popupEditProfile.setInitialInputValues(profileInfo.getUserInfo(), popupProfileSelectors);
   formValidationEditProfile.resetForm();
   popupEditProfile.openPopup();
+});
+
+/** Открытие окна редактирования аватара пользователя */
+editAvatarOpenButton.addEventListener('click', () => {
+  formValidationEditAvatar.resetForm();
+  popupEditAvatar.openPopup();
 });
 
 
