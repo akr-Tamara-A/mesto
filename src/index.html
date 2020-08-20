@@ -84,12 +84,37 @@
             </div>
           </figcaption>
         </figure>
+      </li>
+    </template>
+
+                                                <!-- Template of element card added by user -->
+    <template id="userElementTemplate">
+      <li class="elements__item element">
+        <figure class="element__wrapper">
+          <div class="element__head">
+            <img src="#" 
+                alt="Описание фотографии" 
+                tabindex="0"
+                class="element__image">
+          </div>
+          <figcaption class="element__figcaption">
+            <h3 class="element__title"></h3>
+            <div class="element__like">
+              <button 
+                      type="button" 
+                      title="Добавь лайк"
+                      class="button button_type_no-like element__like-button button_style_secondary"></button>
+              <p class="element__like-counter"></p>
+            </div>
+          </figcaption>
+        </figure>
         <button 
                 type="button" 
                 title="Удалить фото"
                 class="element__delete button button_type_delete button_style_secondary"></button>
       </li>
     </template>
+
                                               <!-- Popup 'Edit profile' -->
     <div id="popupEditProfile" class="popup popup_style_form">
       <div class="popup__container">

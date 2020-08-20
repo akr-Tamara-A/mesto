@@ -37,10 +37,10 @@ export default class Card {
   }
 
   /** Удаление карточки */
-  _handleCardDelete() {
+/*   _handleCardDelete() {
     this._card.remove();
     this._card = null;
-  }
+  } */
 
   /** Открытие окна просмотра полноразмерного фото */
   _handleOpenPopup() {
@@ -53,9 +53,9 @@ export default class Card {
       this._handlePhotoLike();
     });
 
-    this._card.querySelector('.element__delete').addEventListener('click', () => {
+/*     this._card.querySelector('.element__delete').addEventListener('click', () => {
       this._handleCardDelete();
-    });
+    }); */
       
     this._card.querySelector('.element__image').addEventListener('click', () => {
       this._handleOpenPopup();

@@ -5,9 +5,13 @@ import './index.css';
 import FormValidator from '../components/FormValidator.js';
 import Section from '../components/Section.js';
 import Card from '../components/Card.js';
+import UserCard from '../components/UserCard.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithSubmit from '../components/PopupWithSubmit.js';
 import UserInfo from '../components/UserInfo.js';
+import Api from '../components/Api.js';
+
 
 import { 
   config, 
@@ -27,6 +31,19 @@ import {
   popupProfileSelectors,
   popupAvatarSelectors
   } from '../utils/constants.js';
+
+
+  /** Связь с сервером */
+const api = new Api({
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-14',
+  headers: {
+    authorization: 'f7fbd0be-598d-4bc2-8963-24bc80b8013a',
+    'Content-Type': 'application/json'
+    }
+});
+
+//api.getUserInfo();
+//api.getInitialCards();
 
 
 /** Валидация формы редактирования профиля */
@@ -69,7 +86,6 @@ popupEditProfile.setEventListeners();
 const popupEditAvatar = new PopupWithForm({
   handleFormSubmit: (formData) => {
     const userAvatar = formData.editUserAvatar;
-    console.log(formData)
     profileInfo.setUserAvatar({userAvatar});
   }
 }, popupSelectors.editAvatar);
@@ -77,16 +93,28 @@ const popupEditAvatar = new PopupWithForm({
 popupEditAvatar.setEventListeners();
 
 
+/** Инициализация попапа подтверждения удаления карточки */
+const popupDeleteCard = new PopupWithSubmit({
+  handleFormSubmit: () => {
+    console.log('Delete you!');
+  }
+  }, popupSelectors.deleteCard);
+
+popupDeleteCard.setEventListeners();
+
 /** Инициализация попапа добавления новой карточки */
 const popupAddCard = new PopupWithForm({
   handleFormSubmit: (formData) => {
-    const initialNewCard = new Card(
+    const initialNewCard = new UserCard(
       formData.addPhotoLink, 
       formData.addPhotoTitle, 
       {handleCardClick: (photoLink, photoTitle) => {
         popupViewPhoto.openPopup(photoLink, photoTitle);
+      },
+      handleCardDelete: () => {
+        popupDeleteCard.openPopup();
       }}, 
-      cardTemplateSelector);
+      cardTemplateSelector.userCardTemplate);
     const cardElement = initialNewCard.generateCard();
     cardList.setItem(cardElement); 
   }
@@ -127,7 +155,7 @@ const cardList = new Section({
       {handleCardClick: (photoLink, photoTitle) => {
         popupViewPhoto.openPopup(photoLink, photoTitle);
       }}, 
-      cardTemplateSelector);
+      cardTemplateSelector.othersCardTemplate);
     const cardElement = initialCard.generateCard();
     cardList.setItem(cardElement);
   }
