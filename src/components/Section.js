@@ -6,30 +6,25 @@ export default class Section {
     this._container = document.querySelector(containerSelector);
   }
 
-  /** 
-   * Метод очистки секции
-   * @method 
-   */
+  /** Метод очистки секции */
   clear() {
     this._container.innerHTML = '';
   }
 
-  /** 
-   * Метод отрисовки элементов
-   * @method 
-   */
+  /** Метод отрисовки элементов */
   renderItems() {
     this.clear();
 
-    this._renderedItems.forEach((elem) => {
-      this._renderer(elem);
+    this._renderedItems()
+    .then((data) => {
+      data.forEach((elem) => {
+        this._renderer(elem);
+    })
     });
   }
 
-  /** 
-   * Добавление элемента в контейнер
-   * @method 
-   */
+  /** Добавление элемента в контейнер */
+
   setItem(cardElement) {
     this._container.prepend(cardElement);
   }

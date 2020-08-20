@@ -43,7 +43,12 @@ const api = new Api({
 });
 
 //api.getUserInfo();
-//api.getInitialCards();
+/* api.getInitialCards()
+.then((data) => {
+  console.log(data)
+});
+ */
+
 
 
 /** Валидация формы редактирования профиля */
@@ -147,7 +152,9 @@ addPhotoOpenButton.addEventListener('click', () => {
 
 /** Добавление предустановленных карточек на страницу */
 const cardList = new Section({
-  data: initialCards,
+  data: () => {
+    return api.getInitialCards()
+  },
   renderer: (elem) => {
     const initialCard = new Card(
       elem.link, 
