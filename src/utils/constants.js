@@ -6,8 +6,7 @@ export const addPhotoOpenButton = document.querySelector('.button_type_add-photo
 export const elementContainer = '.elements__container';
 
 export const cardTemplateSelector = {
-  userCardTemplate: '#userElementTemplate',
-  othersCardTemplate: '#elementTemplate',
+  cardTemplate: '#elementTemplate'
 };
 
 export const ESC_CODE = 'Escape';

@@ -1,10 +1,12 @@
 import Popup from './Popup.js';
+import { initialCards } from '../utils/constants.js';
 
 export default class PopupWithForm extends Popup {
   constructor({handleFormSubmit}, popupSelector) {
     super(popupSelector);
     this.handleFormSubmit = handleFormSubmit;
     this._form = this._popup.querySelector('.popup__form');
+    this._initData = {};
   }
   
   /** Получение значений инпутов формы */
@@ -37,8 +39,7 @@ export default class PopupWithForm extends Popup {
 
   /** Установка изначальных значений инпутов формы */
   setInitialInputValues(initialData, selectors) {
-    this._form.querySelector(selectors.userName).value = initialData.userName;
-    this._form.querySelector(selectors.userJob).value = initialData.userJob;
-    
+    this._form.querySelector(selectors.userName).value = initialData.name;
+    this._form.querySelector(selectors.userJob).value = initialData.about;
   }
 }

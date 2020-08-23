@@ -5,6 +5,7 @@ export default class PopupWithSubmit extends Popup {
     super(popupSelector);
     this.handleFormSubmit = handleFormSubmit;
     this._form = this._popup.querySelector('.popup__form');
+    this._cardId = '';
   }
 
   /** Навешивание слушателя отправления формы */
@@ -16,5 +17,13 @@ export default class PopupWithSubmit extends Popup {
       this.handleFormSubmit();
       this.closePopup();
     });
+  }
+
+  getCardID(cardId) {
+    this._cardId = cardId;
+  }
+
+  setCardId() {
+    return this._cardId;
   }
 }

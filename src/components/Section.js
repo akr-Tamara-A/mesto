@@ -15,16 +15,12 @@ export default class Section {
   renderItems() {
     this.clear();
 
-    this._renderedItems()
-    .then((data) => {
-      data.forEach((elem) => {
+    this._renderedItems.forEach((elem) => {
         this._renderer(elem);
     })
-    });
   }
 
   /** Добавление элемента в контейнер */
-
   setItem(cardElement) {
     this._container.prepend(cardElement);
   }

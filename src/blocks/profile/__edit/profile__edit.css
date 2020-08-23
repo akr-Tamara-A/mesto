@@ -12,6 +12,7 @@
   opacity: 0;
   cursor: pointer;
   transition: opacity .3s ease;
+  z-index: 5;
 }
 
 .profile__edit:hover {
