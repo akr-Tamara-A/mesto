@@ -4,8 +4,9 @@ import { initialCards } from '../utils/constants.js';
 export default class PopupWithForm extends Popup {
   constructor({handleFormSubmit}, popupSelector) {
     super(popupSelector);
-    this.handleFormSubmit = handleFormSubmit;
+    this._handleFormSubmit = handleFormSubmit;
     this._form = this._popup.querySelector('.popup__form');
+    this._submitButton = this._popup.querySelector('.popup__submit');
     this._initData = {};
   }
   
@@ -26,7 +27,7 @@ export default class PopupWithForm extends Popup {
 
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      this.handleFormSubmit(this._getInputValues());
+      this._handleFormSubmit(this._getInputValues(), this._submitButton);
       this.closePopup();
     });
   }

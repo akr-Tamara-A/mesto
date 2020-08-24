@@ -32,6 +32,10 @@ import {
   } from '../utils/constants.js';
 
 
+  import { renderLoading } from '../utils/utils.js';
+
+
+
   /** Связь с сервером */
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-14',
@@ -68,16 +72,21 @@ api.getUserInfo()
     
   /** Инициализация попапа редактирования профиля */
   const popupEditProfile = new PopupWithForm({
-    handleFormSubmit: (formData) => {
+    handleFormSubmit: (formData, submitButton) => {
       const userName = formData.editProfileUserName;
       const userJob = formData.editProfileUserJob;
       
+      renderLoading(true, submitButton);
+
       api.patchUserInfo(userName, userJob)
       .then(() => {
         profileInfo.setUserInfo(userName, userJob);
       })
       .catch((err) => {
-        console.log('Ошибка. Не удалось установить новый аватар: ', err);
+        console.log('Ошибка. Не удалось установить новые данные: ', err);
+      })
+      .finally(() => {
+        renderLoading(false, submitButton);
       });
     }
   }, popupSelectors.editProfile);
@@ -86,8 +95,10 @@ api.getUserInfo()
 
   /** Инициализация попапа редактирования аватара */
   const popupEditAvatar = new PopupWithForm({
-    handleFormSubmit: (formData) => {
+    handleFormSubmit: (formData, submitButton) => {
       const userAvatar = formData.editUserAvatar;
+
+      renderLoading(true, submitButton);
 
       api.patchUserAvatar(userAvatar)
         .then(() => {
@@ -95,6 +106,9 @@ api.getUserInfo()
         })
         .catch((err) => {
           console.log('Ошибка. Не удалось установить новый аватар: ', err);
+        })
+        .finally(() => {
+          renderLoading(false, submitButton);
         });
     }
   }, popupSelectors.editAvatar);
@@ -139,7 +153,7 @@ api.getInitialCards()
             if (isLiked) {
               api.unlikeCard(id)
               .then((data) => {
-                initialCard.getLikes(data.likes.length);
+                initialCard.setLikes(data.likes.length);
                 initialCard.handlePhotoLike();
               })
               .catch((err) => {
@@ -148,7 +162,7 @@ api.getInitialCards()
             } else {
               api.likeCard(id)
                 .then((data) => {
-                  initialCard.getLikes(data.likes.length);
+                  initialCard.setLikes(data.likes.length);
                   initialCard.handlePhotoLike();
                 })
                 .catch((err) => {
@@ -156,9 +170,9 @@ api.getInitialCards()
                 });
             }
           },
-          handleCardDelete: (id) => {
+          handleCardDelete: (id, card) => {
             popupDeleteCard.openPopup();
-            popupDeleteCard.getCardID(id);
+            popupDeleteCard.getCardID(id, card);
           }}, 
           cardTemplateSelector.cardTemplate);
         const cardElement = initialCard.generateCard();
@@ -170,9 +184,11 @@ api.getInitialCards()
 
     /** Инициализация попапа добавления новой карточки */
     const popupAddCard = new PopupWithForm({
-      handleFormSubmit: (formData) => {
+      handleFormSubmit: (formData, submitButton) => {
         const cardName = formData.addPhotoTitle;
         const cardLink = formData.addPhotoLink;
+
+        renderLoading(true, submitButton);
 
         api.postNewCard(cardName, cardLink)
           .then((data) => {
@@ -186,7 +202,7 @@ api.getInitialCards()
                 if (isLiked) {
                   api.unlikeCard(id)
                   .then((data) => {
-                    newCard.getLikes(data.likes.length);
+                    newCard.setLikes(data.likes.length);
                     newCard.handlePhotoLike();
                   })
                   .catch((err) => {
@@ -195,22 +211,28 @@ api.getInitialCards()
                 } else {
                   api.likeCard(id)
                     .then((data) => {
-                      newCard.getLikes(data.likes.length);
+                      newCard.setLikes(data.likes.length);
                       newCard.handlePhotoLike();
                     })
                     .catch((err) => {
                       console.log('Ошибка. Не получилось добавить лайк: ', err);
-                    });
+                    })
                 }
               },
-              handleCardDelete: (id) => {
+              handleCardDelete: (id,card) => {
                 popupDeleteCard.openPopup();
-                popupDeleteCard.getCardID(id);
+                popupDeleteCard.getCardID(id, card);
               }}, 
               cardTemplateSelector.cardTemplate);
             const cardElement = newCard.generateCard();
             cardList.setItem(cardElement); 
           })
+          .catch((err) => {
+            console.log('Ошибка. Не получилось добавить карточку: ', err);
+          })
+          .finally(() => {
+            renderLoading(false, submitButton);
+          });
       }
     },
     popupSelectors.addPhoto);
@@ -231,14 +253,14 @@ api.getInitialCards()
     /** Инициализация попапа подтверждения удаления карточки */
     const popupDeleteCard = new PopupWithSubmit({
       handleFormSubmit: () => {
-        console.log('Will delete you!');
-        const cardId = popupDeleteCard.setCardId();
+        const card = popupDeleteCard.setCardId().card;
+        const cardId = popupDeleteCard.setCardId().id;
         api.deleteCard(cardId)
           .then(() => {
-            console.log('Delete you!');
+            card.remove();
           })
           .catch((err) => {
-            console.log('Ошибка. Запрос не выполнен: ', err);
+            console.log('Ошибка. Запрос на удаление не выполнен: ', err);
           });
       }
       }, popupSelectors.deleteCard);

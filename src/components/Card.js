@@ -42,7 +42,7 @@ export default class Card {
     this._elementTitle.textContent = this._title;
     this._elementCounter.textContent = this._likes.length;
     
-    if (this._likes._id === this._userID) {
+    if (this._checkIsLiked()) {
       this._elementLike.classList.add('button_type_like');
     }
 
@@ -73,11 +73,6 @@ export default class Card {
     this._card = null;
   } 
 
-  _handleDeleteClick(id) {
-    console.log(id)
-    this._handleCardDelete(id);
-  }
-
   /** Открытие окна просмотра полноразмерного фото */
   _handleOpenPopup() {
     this._handleCardClick(this._image, this._title);
@@ -90,7 +85,7 @@ export default class Card {
     });
 
     this._card.querySelector('.element__delete').addEventListener('click', () => {
-      this._handleDeleteClick(this._id);
+      this._handleCardDelete(this._id, this._card);
     }); 
       
     this._card.querySelector('.element__image').addEventListener('click', () => {
@@ -105,12 +100,19 @@ export default class Card {
 
   /** Проверка лайкнута ли карточка */
   _checkIsLiked() {
-    this._elementLike = this._card.querySelector('.element__like-button');
-    return this._elementLike.classList.contains('button_type_like');
+return this._likes.some((user) => {
+      if (user._id === this._userID) {
+        return true;
+      }
+    })
   }
 
   /** Получение количества лайков */
-  getLikes(data) {
+  setLikes(data) {
     this._elementCounter.textContent = data;
+  }
+
+  isCardDeleted() {
+
   }
 };
