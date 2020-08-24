@@ -16,4 +16,11 @@ export default class PopupWithImage extends Popup {
     this._photoLink.alt = photoTitle;
     this._photoTitle.textContent = photoTitle;
   }
+
+  closePopup() {
+    super.closePopup();
+    this._photoLink.src = '';
+    this._photoLink.alt = '';
+    this._photoTitle.textContent = '';
+  }
 }

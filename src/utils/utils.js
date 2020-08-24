@@ -2,10 +2,8 @@
 
 export function renderLoading (isLoading, button) {
   if (isLoading) {
-    console.log(isLoading);
-    button.textContent = 'Загружается...'
+    button.value = 'Сохранение...'
   } else {
-    console.log(isLoading);
-    button.textContent = 'Сохранить'
+    button.value = 'Сохранить'
   }
 }

@@ -81,12 +81,14 @@ api.getUserInfo()
       api.patchUserInfo(userName, userJob)
       .then(() => {
         profileInfo.setUserInfo(userName, userJob);
+        //popupEditProfile.closePopup();
       })
       .catch((err) => {
         console.log('Ошибка. Не удалось установить новые данные: ', err);
       })
       .finally(() => {
         renderLoading(false, submitButton);
+        popupEditProfile.closePopup();
       });
     }
   }, popupSelectors.editProfile);
@@ -109,6 +111,7 @@ api.getUserInfo()
         })
         .finally(() => {
           renderLoading(false, submitButton);
+          popupEditAvatar.closePopup();
         });
     }
   }, popupSelectors.editAvatar);
@@ -232,6 +235,7 @@ api.getInitialCards()
           })
           .finally(() => {
             renderLoading(false, submitButton);
+            popupAddCard.closePopup();
           });
       }
     },
