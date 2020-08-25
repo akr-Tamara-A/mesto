@@ -1,4 +1,3 @@
-
 export default class Api {
   constructor(options) {
     this._baseUrl = options.baseUrl;
@@ -7,43 +6,42 @@ export default class Api {
 
   /** получить список всех карточек в виде массива (GET) */
   getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, {headers: this.headers})
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log('Ошибка. Запрос не выполнен: ', err);
-    })
+    return fetch(`${this._baseUrl}/cards`, { headers: this.headers })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Ошибка: ${res.status}`);
+      })
+      .catch((err) => {
+        console.log("Ошибка. Запрос не выполнен: ", err);
+      });
   }
 
   /** получить данные пользователя (GET) */
   getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, {headers: this.headers})
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log('Ошибка. Запрос не выполнен: ', err);
-    });
+    return fetch(`${this._baseUrl}/users/me`, { headers: this.headers })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Ошибка: ${res.status}`);
+      })
+      .catch((err) => {
+        console.log("Ошибка. Запрос не выполнен: ", err);
+      });
   }
 
   /** заменить данные пользователя (PATCH) */
   patchUserInfo(name, about) {
     return fetch(`${this._baseUrl}/users/me`, {
-      method: 'PATCH',
+      method: "PATCH",
       headers: this.headers,
       body: JSON.stringify({
         name: name,
-        about: about
-      })
-    })
-    .then(res => {
+        about: about,
+      }),
+    }).then((res) => {
       if (res.ok) {
         return res.json();
       }
@@ -54,13 +52,12 @@ export default class Api {
   /** заменить аватар (PATCH) */
   patchUserAvatar(avatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
-      method: 'PATCH',
+      method: "PATCH",
       headers: this.headers,
       body: JSON.stringify({
-        avatar: avatar
-      })
-    })
-    .then(res => {
+        avatar: avatar,
+      }),
+    }).then((res) => {
       if (res.ok) {
         return res.json();
       }
@@ -71,14 +68,13 @@ export default class Api {
   /** добавить карточку (POST) */
   postNewCard(name, link) {
     return fetch(`${this._baseUrl}/cards`, {
-      method: 'POST',
+      method: "POST",
       headers: this.headers,
       body: JSON.stringify({
         name: name,
-        link: link
-      })
-    })
-    .then(res => {
+        link: link,
+      }),
+    }).then((res) => {
       if (res.ok) {
         return res.json();
       }
@@ -89,42 +85,39 @@ export default class Api {
   /** "залайкать" карточку (PUT) */
   likeCard(cardID) {
     return fetch(`${this._baseUrl}/cards/likes/${cardID}`, {
-      method: 'PUT',
+      method: "PUT",
       headers: this.headers,
-    })
-    .then(res => {
+    }).then((res) => {
       if (res.ok) {
         return res.json();
       }
       return Promise.reject(`Ошибка: ${res.status}`);
-    })
+    });
   }
 
   /** удалить лайк карточки (DELETE) */
   unlikeCard(cardID) {
     return fetch(`${this._baseUrl}/cards/likes/${cardID}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: this.headers,
-    })
-    .then(res => {
+    }).then((res) => {
       if (res.ok) {
         return res.json();
       }
       return Promise.reject(`Ошибка: ${res.status}`);
-    })
+    });
   }
 
   /** удалить карточку (DELETE) */
   deleteCard(cardID) {
     return fetch(`${this._baseUrl}/cards/${cardID}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: this.headers,
-    })
-    .then(res => {
+    }).then((res) => {
       if (res.ok) {
         return res.json();
       }
       return Promise.reject(`Ошибка: ${res.status}`);
-    })
+    });
   }
 }

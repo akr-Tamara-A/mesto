@@ -1,6 +1,5 @@
-
 export default class UserInfo {
-  constructor(selectors, {data}) {
+  constructor(selectors, { data }) {
     this._userNameSelector = selectors.userName;
     this._userJobSelector = selectors.userJob;
     this._userAvatarSelector = selectors.userAvatar;
@@ -11,15 +10,15 @@ export default class UserInfo {
 
     this._user = data;
   }
-  
+
   /** Получение данных пользователя */
   getUserInfo() {
     return {
       name: this._userName.textContent,
-      about: this._userJob.textContent
+      about: this._userJob.textContent,
     };
-  };
-  
+  }
+
   /** Добавление данных пользователя на страницу */
   setUserInfo(userName, userJob) {
     this._userName.textContent = userName;
@@ -35,4 +34,4 @@ export default class UserInfo {
   getUserID() {
     return this._user._id;
   }
-} 
+}

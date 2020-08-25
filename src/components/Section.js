@@ -1,4 +1,3 @@
-
 export default class Section {
   constructor({ data, renderer }, containerSelector) {
     this._renderedItems = data;
@@ -8,7 +7,7 @@ export default class Section {
 
   /** Метод очистки секции */
   clear() {
-    this._container.innerHTML = '';
+    this._container.innerHTML = "";
   }
 
   /** Метод отрисовки элементов */
@@ -16,8 +15,8 @@ export default class Section {
     this.clear();
 
     this._renderedItems.forEach((elem) => {
-        this._renderer(elem);
-    })
+      this._renderer(elem);
+    });
   }
 
   /** Добавление элемента в контейнер */

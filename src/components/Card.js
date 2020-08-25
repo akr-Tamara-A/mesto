@@ -1,6 +1,10 @@
-
 export default class Card {
-  constructor(data, userID, {handleCardClick,handleCardLike, handleCardDelete}, cardTemplateSelector) {
+  constructor(
+    data,
+    userID,
+    { handleCardClick, handleCardLike, handleCardDelete },
+    cardTemplateSelector
+  ) {
     this._image = data.link;
     this._title = data.name;
     this._id = data._id;
@@ -19,7 +23,7 @@ export default class Card {
   _getTemplate() {
     const cardElement = document
       .querySelector(this._cardTemplateSelector)
-      .content.querySelector('.element')
+      .content.querySelector(".element")
       .cloneNode(true);
 
     return cardElement;
@@ -29,25 +33,25 @@ export default class Card {
   generateCard() {
     this._card = this._getTemplate();
     this._setEventListeners();
-    this._card.setAttribute('id', this._id);
+    this._card.setAttribute("id", this._id);
 
-    this._elementImage = this._card.querySelector('.element__image');
-    this._elementTitle = this._card.querySelector('.element__title');
-    this._elementDelete = this._card.querySelector('.element__delete');
-    this._elementLike = this._card.querySelector('.element__like-button');
-    this._elementCounter = this._card.querySelector('.element__like-counter');
+    this._elementImage = this._card.querySelector(".element__image");
+    this._elementTitle = this._card.querySelector(".element__title");
+    this._elementDelete = this._card.querySelector(".element__delete");
+    this._elementLike = this._card.querySelector(".element__like-button");
+    this._elementCounter = this._card.querySelector(".element__like-counter");
 
     this._elementImage.src = this._image;
     this._elementImage.alt = this._title;
     this._elementTitle.textContent = this._title;
     this._elementCounter.textContent = this._likes.length;
-    
+
     if (this._checkIsLiked()) {
-      this._elementLike.classList.add('button_type_like');
+      this._elementLike.classList.add("button_type_like");
     }
 
     if (this._isOwner()) {
-      this._elementDelete.classList.remove('element__delete_hidden');
+      this._elementDelete.classList.remove("element__delete_hidden");
     }
     return this._card;
   }
@@ -63,8 +67,8 @@ export default class Card {
 
   /**Обработка кнопки like */
   handlePhotoLike() {
-    this._elementLike = this._card.querySelector('.element__like-button');
-    this._elementLike.classList.toggle('button_type_like');
+    this._elementLike = this._card.querySelector(".element__like-button");
+    this._elementLike.classList.toggle("button_type_like");
   }
 
   /** Открытие окна просмотра полноразмерного фото */
@@ -73,18 +77,24 @@ export default class Card {
   }
 
   /**Установка слушателей карточки */
-  _setEventListeners() {    
-    this._card.querySelector('.element__like-button').addEventListener('click', () => {
-      this._handleLikeClick(this._id);
-    });
+  _setEventListeners() {
+    this._card
+      .querySelector(".element__like-button")
+      .addEventListener("click", () => {
+        this._handleLikeClick(this._id);
+      });
 
-    this._card.querySelector('.element__delete').addEventListener('click', () => {
-      this._handleCardDelete(this._id, this._card);
-    }); 
-      
-    this._card.querySelector('.element__image').addEventListener('click', () => {
-      this._handleOpenPopup();
-    });
+    this._card
+      .querySelector(".element__delete")
+      .addEventListener("click", () => {
+        this._handleCardDelete(this._id, this._card);
+      });
+
+    this._card
+      .querySelector(".element__image")
+      .addEventListener("click", () => {
+        this._handleOpenPopup();
+      });
   }
 
   /** Проверка если воздатель карточки - этот пользователь */
@@ -94,15 +104,11 @@ export default class Card {
 
   /** Проверка лайкнута ли карточка */
   _checkIsLiked() {
-    return this._likes.some((user) => {
-      if (user._id === this._userID) {
-        return true;
-      }
-    })
+    return this._likes.some((user) => user._id === this._userID);
   }
 
   /** Получение количества лайков */
   setLikes(data) {
     this._elementCounter.textContent = data;
   }
-};
+}

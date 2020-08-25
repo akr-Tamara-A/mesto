@@ -1,9 +1,17 @@
-
 /** Уведомление пользователя о процессе загрузки */
-export function renderLoading (isLoading, button) {
+export function renderLoading(isLoading, button) {
   if (isLoading) {
-    button.value = 'Сохранение...'
+    button.value = "Сохранение...";
   } else {
-    button.value = 'Сохранить'
+    button.value = "Сохранить";
+  }
+}
+
+/** Уведомление пользователя о процессе удаления */
+export function renderDeletion(isLoading, button) {
+  if (isLoading) {
+    button.value = "Удаление...";
+  } else {
+    button.value = "Да";
   }
 }

@@ -1,22 +1,22 @@
-import Popup from './Popup.js';
+import Popup from "./Popup.js";
 
 export default class PopupWithSubmit extends Popup {
-  constructor({handleFormSubmit}, popupSelector) {
+  constructor({ handleFormSubmit }, popupSelector) {
     super(popupSelector);
     this.handleFormSubmit = handleFormSubmit;
-    this._form = this._popup.querySelector('.popup__form');
-    this._cardId = '';
-    this._card = '';
+    this._form = this._popup.querySelector(".popup__form");
+    this._submitButton = this._popup.querySelector(".popup__submit");
+    this._cardId = "";
+    this._card = "";
   }
 
   /** Навешивание слушателя отправления формы */
   setEventListeners() {
     super.setEventListeners();
 
-    this._form.addEventListener('submit', (evt) => {
+    this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this.handleFormSubmit();
-      this.closePopup();
+      this.handleFormSubmit(this._submitButton);
     });
   }
 
@@ -28,6 +28,6 @@ export default class PopupWithSubmit extends Popup {
 
   /**  */
   setCardId() {
-    return {id: this._cardId, card: this._card};
+    return { id: this._cardId, card: this._card };
   }
 }
