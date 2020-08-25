@@ -24,7 +24,11 @@ import {
   popupProfileSelectors,
 } from "../utils/constants.js";
 
-import { renderLoading, renderDeletion } from "../utils/utils.js";
+import { 
+  renderLoading,
+  renderDeletion,
+  setInitialInputValues
+} from "../utils/utils.js";
 
 let userID = "";
 let cardList;
@@ -251,9 +255,10 @@ popupDeleteCard.setEventListeners();
 
 /** Открытие окна редактирования профиля пользователя */
 editProfileOpenButton.addEventListener("click", () => {
-  popupEditProfile.setInitialInputValues(
+  setInitialInputValues(
     profileInfo.getUserInfo(),
-    popupProfileSelectors
+    popupProfileSelectors,
+    popupSelectors.editProfile
   );
   formValidationEditProfile.resetForm();
   popupEditProfile.openPopup();

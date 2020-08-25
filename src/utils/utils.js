@@ -15,3 +15,10 @@ export function renderDeletion(isLoading, button) {
     button.value = "Да";
   }
 }
+
+  /** Установка начальных значений инпутов формы */
+  export function setInitialInputValues(initialData, selectors, popupSelector) {
+    const popup = document.querySelector(popupSelector);
+    popup.querySelector(selectors.userName).value = initialData.name;
+    popup.querySelector(selectors.userJob).value = initialData.about;
+  }

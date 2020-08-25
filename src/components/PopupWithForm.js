@@ -36,10 +36,4 @@ export default class PopupWithForm extends Popup {
     super.closePopup();
     this._form.reset();
   }
-
-  /** Установка изначальных значений инпутов формы */
-  setInitialInputValues(initialData, selectors) {
-    this._form.querySelector(selectors.userName).value = initialData.name;
-    this._form.querySelector(selectors.userJob).value = initialData.about;
-  }
 }
