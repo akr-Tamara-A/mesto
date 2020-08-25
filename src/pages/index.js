@@ -14,7 +14,6 @@ import Api from '../components/Api.js';
 
 import { 
   config, 
-  initialCards,
 
   elementContainer,
   cardTemplateSelector,
@@ -33,7 +32,6 @@ import {
 
 
   import { renderLoading } from '../utils/utils.js';
-
 
 
   /** Связь с сервером */
@@ -270,8 +268,5 @@ api.getInitialCards()
       }, popupSelectors.deleteCard);
 
     popupDeleteCard.setEventListeners();
-
-
-
   })
 

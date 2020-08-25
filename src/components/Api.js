@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 
 export default class Api {
   constructor(options) {
@@ -69,8 +68,6 @@ export default class Api {
     });
   }
 
-
-
   /** добавить карточку (POST) */
   postNewCard(name, link) {
     return fetch(`${this._baseUrl}/cards`, {
@@ -117,7 +114,6 @@ export default class Api {
     })
   }
 
-
   /** удалить карточку (DELETE) */
   deleteCard(cardID) {
     return fetch(`${this._baseUrl}/cards/${cardID}`, {
@@ -131,5 +127,4 @@ export default class Api {
       return Promise.reject(`Ошибка: ${res.status}`);
     })
   }
-
 }

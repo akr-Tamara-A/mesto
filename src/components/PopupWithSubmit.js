@@ -20,11 +20,13 @@ export default class PopupWithSubmit extends Popup {
     });
   }
 
+  /** Получения ID и карточки */
   getCardID(cardId, card) {
     this._cardId = cardId;
     this._card = card;
   }
 
+  /**  */
   setCardId() {
     return {id: this._cardId, card: this._card};
   }

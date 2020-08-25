@@ -67,12 +67,6 @@ export default class Card {
     this._elementLike.classList.toggle('button_type_like');
   }
 
-  /** Удаление карточки */
-  handleCardDelete() {
-    this._card.remove();
-    this._card = null;
-  } 
-
   /** Открытие окна просмотра полноразмерного фото */
   _handleOpenPopup() {
     this._handleCardClick(this._image, this._title);
@@ -100,7 +94,7 @@ export default class Card {
 
   /** Проверка лайкнута ли карточка */
   _checkIsLiked() {
-return this._likes.some((user) => {
+    return this._likes.some((user) => {
       if (user._id === this._userID) {
         return true;
       }
@@ -110,9 +104,5 @@ return this._likes.some((user) => {
   /** Получение количества лайков */
   setLikes(data) {
     this._elementCounter.textContent = data;
-  }
-
-  isCardDeleted() {
-
   }
 };
